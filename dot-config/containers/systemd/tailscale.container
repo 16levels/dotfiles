@@ -1,0 +1,15 @@
+[Unit]
+Description='tailscale'
+After=local-fs.target
+
+[Container]
+Image=ghcr.io/tailscale/tailscale:latest
+Volume=tailscale.volume:/var/lib/tailscale:Z
+Network=host
+Environment=TS_STATE_DIR=/var/lib/tailscale
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target default.target
