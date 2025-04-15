@@ -1,15 +1,35 @@
 if status is-interactive
 
-# starship prompt
-starship init fish | source
+    # starship prompt
+    starship init fish | source
 
-# secure enclave ssh integration
-set -x SSH_AUTH_SOCK /Users/cory/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+    # Operating System
+    switch (uname)
+    case Darwin    
+        # Mac OS Specific
+        #
+        # secure enclave ssh integration
+        set -x SSH_AUTH_SOCK $HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+    case Linux
+        # Linux Specific
+        #
+        # OSTree/Immutable Systems
+        # if [ -e /run/ostree-booted ]
+        #
+        # end
+        #
+        # Toolbx Containers
+        # if [ $hostname = 'toolbx' ]
+        #
+        # end
+        #
+    end
+
 end
 
 
 # opam configuration
-test -r '/Users/cory/.opam/opam-init/init.fish' && source '/Users/cory/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
+[ -r '$HOME/.opam/opam-init/init.fish' ] && source '$HOME/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
 
 
 # emacs libvterm integration 
