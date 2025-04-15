@@ -14,9 +14,10 @@ if status is-interactive
         # Linux Specific
         #
         # OSTree/Immutable Systems
-        # if [ -e /run/ostree-booted ]
-        #
-        # end
+        if [ -e /run/ostree-booted ]
+            alias vi="toolbox run nvim"
+            alias stow="toolbox run stow"
+        end
         #
         # Toolbx Containers
         # if [ $hostname = 'toolbx' ]
