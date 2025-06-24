@@ -1,9 +1,11 @@
 font-family = "IosevkaTerm Nerd Font Mono"
-font-size = 18
+font-size = 16
 
 theme = catppuccin-frappe
 
-background-opacity = .93
+background-opacity = .94
 
 macos-option-as-alt = true
 
+window-height = 24
+window-width = 80

@@ -6,8 +6,8 @@ Image=syncthing/syncthing
 ContainerName=syncthing
 Network=host
 UserNS=keep-id
-Volume=/var/home/cory/Sync:/var/syncthing/Sync:Z
-Volume=/var/home/cory/.local/state/syncthing:/var/syncthing/config:Z
+Volume=/home/cory/Sync:/var/syncthing/Sync:Z
+Volume=/home/cory/.local/state/syncthing:/var/syncthing/config:Z
 HealthCmd=curl -fkLsS -m 2 127.0.0.1:8384/rest/noauth/health | grep -o --color=never OK || exit 1
 HealthInterval=1m
 HealthRetries=3

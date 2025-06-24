@@ -15,7 +15,7 @@ if status is-interactive
         #
         # OSTree/Immutable Systems
         if [ -e /run/ostree-booted ]
-            alias vi="toolbox run nvim"
+            # alias vi="toolbox run nvim"
             alias stow="toolbox run stow"
         end
         #

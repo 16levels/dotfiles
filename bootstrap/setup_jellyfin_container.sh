@@ -37,5 +37,7 @@ usermod -s /usr/sbin/nologin jellyfin
 passwd -l jellyfin
 
 firewall-cmd --permanent --add-port=8096/tcp
+firewall-cmd --permanent --add-port=1900/udp
+firewall-cmd --permanent --add-port=7359/udp
 firewall-cmd --reload
 
