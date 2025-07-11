@@ -3,7 +3,7 @@
 dconf load / <<EOF
 [org/gnome/Ptyxis]
 default-profile-uuid='f5cc43dec2bd7af123df189667e05979'
-font-name='Iosevka Term 15'
+font-name='Iosevka Term 14'
 profile-uuids=['f5cc43dec2bd7af123df189667e05979']
 use-system-font=false
 window-size=(uint32 89, uint32 15)
@@ -32,8 +32,8 @@ document-font-name='Adwaita Sans 12'
 font-antialiasing='rgba'
 font-hinting='full'
 font-name='Adwaita Sans 12'
-gtk-theme='Yaru-red-dark'
-icon-theme='Yaru-red-dark'
+gtk-theme='Yaru-red'
+icon-theme='Yaru-red'
 monospace-font-name='Adwaita Mono 12'
 toolkit-accessibility=false
 
