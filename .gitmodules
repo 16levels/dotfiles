@@ -1,3 +1,7 @@
 [submodule "nvim/dot-config/nvim"]
 	path = nvim/dot-config/nvim
 	url = https://github.com/16levels/kickstart.nvim.git
+
+[submodule "tpm/dot-tpm"]
+	path = tpm/dot-tpm
+	url = https://github.com/tmux-plugins/tpm.git
