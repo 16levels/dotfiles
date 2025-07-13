@@ -1,7 +1,10 @@
+auth.json
 cmus/dot-config/cmus/autosave
 cmus/dot-config/cmus/cache
 cmus/dot-config/cmus/command-history
 cmus/dot-config/cmus/lib.pl
 cmus/dot-config/cmus/playlists
 cmus/dot-config/cmus/search-history
+containers/dot-config/containers/podman/machine
+podman-connections.json*
 tmux/dot-config/tmux/plugins/
