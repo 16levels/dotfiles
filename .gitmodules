@@ -4,4 +4,4 @@
 
 [submodule "tpm/dot-tpm"]
 	path = tpm/dot-tpm
-	url = https://github.com/tmux-plugins/tpm.git
+	url = https://github.com/tmux-plugins/tpm
