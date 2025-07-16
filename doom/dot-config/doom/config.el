@@ -30,18 +30,15 @@
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
+(setq shell-file-name (executable-find
+                       "bash"))
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(pcase system-type
-  ('gnu/linux
-   (setq catppuccin-flavor 'latte))
-  ('darwin
-   (setq catppuccin-flavor 'frappe)))
+;; (setq catppuccin-flavor 'frappe)
+;; (setq doom-theme 'catppuccin)
 
-(setq doom-theme 'catppuccin)
-
-(setq fancy-splash-image "~/.config/doom/emacs.svg")
+;;(setq fancy-splash-image "~/.config/doom/emacs.svg")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -88,4 +85,21 @@
       (append initial-frame-alist
               '((width  . 140)
                 (height . 40))))
+ 
+(setq auto-dark-allow-osascript t)
 
+(after! doom-ui
+  (setq catppuccin-flavor 'frappe)
+  (setq doom-theme 'catppuccin)
+  (setq auto-dark-allow-osascript t)
+
+  (add-hook 'auto-dark-dark-mode-hook
+            (lambda ()
+              (setq catppuccin-flavor 'frappe)
+              (catppuccin-reload)))
+
+  (add-hook 'auto-dark-light-mode-hook
+            (lambda ()
+              (setq catppuccin-flavor 'latte)
+              (catppuccin-reload)))
+  (auto-dark-mode))

@@ -9,6 +9,7 @@
 ;; (package! some-package)
 (package! catppuccin-theme)
 (package! evil-tutor)
+(package! auto-dark)
 (package! i-ching)
 (package! sicp)
 
