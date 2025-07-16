@@ -1,7 +1,6 @@
 #!/bin/sh
 
-
-echo "style-scheme 'catppuccin' \
+  echo "style-scheme 'catppuccin' \
 	custom-font 'Iosevka 12' \
 	show-line-numbers true \
 	keybindings 'vim' \

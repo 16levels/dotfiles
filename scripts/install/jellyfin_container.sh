@@ -1,12 +1,15 @@
 #!/bin/sh
 
+export MEDIA_DIR='/mnt/jellyfin'
+
+
 useradd -c 'Jellyfin media server' jellyfin
 su -c "mkdir -p \
 	/home/jellyfin/config \
 	/home/jellyfin/cache \
 	/home/jellyfin/.config/containers/systemd" jellyfin
 
-su -c 'echo \
+su -c echo \
 "[Unit]
 Description=Jellyfin
 
@@ -19,13 +22,13 @@ UserNS=keep-id
 AddDevice=/dev/dri:/dev/dri
 Volume=/home/jellyfin/config:/config:Z
 Volume=/home/jellyfin/cache:/cache:Z
-Volume=/mnt/jellyfin:/media:Z
+Volume=$MEDIA_DIR:/media:z
 
 [Service]
 SuccessExitStatus=0 143
  
 [Install]
-WantedBy=default.target" > /home/jellyfin/.config/containers/systemd/jellyfin.container' jellyfin
+WantedBy=default.target" > /home/jellyfin/.config/containers/systemd/jellyfin.container jellyfin
 
 
 loginctl enable-linger jellyfin
