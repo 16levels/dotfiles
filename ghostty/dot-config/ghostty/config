@@ -1,7 +1,7 @@
 font-family = "IosevkaTerm Nerd Font Mono"
 font-size = 16
 
-theme = catppuccin-frappe
+theme = dark:catppuccin-frappe,light:catppuccin-latte
 
 background-opacity = .94
 
