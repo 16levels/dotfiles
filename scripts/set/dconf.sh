@@ -10,7 +10,7 @@ window-size=(uint32 89, uint32 15)
 
 [org/gnome/Ptyxis/Profiles/f5cc43dec2bd7af123df189667e05979]
 bold-is-bright=false
-palette='Catppuccin Dark-Light'
+palette='Catppuccin Frappe-Latte'
 
 [org/gnome/desktop/background]
 color-shading-type='solid'
