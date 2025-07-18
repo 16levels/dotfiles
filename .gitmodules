@@ -2,3 +2,6 @@
 	path = nvim/dot-config/nvim
 	url = https://github.com/16levels/kickstart.nvim.git
 
+[submodule "tpm/dot-tmux/plugins/tpm"]
+	path = tpm/dot-tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
