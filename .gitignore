@@ -6,5 +6,11 @@ cmus/dot-config/cmus/lib.pl
 cmus/dot-config/cmus/playlists
 cmus/dot-config/cmus/search-history
 containers/dot-config/containers/podman/machine
+containers/dot-config/containers/systemd/
+gnome-text-editor/dot-var/app/org.gnome.TextEditor/.ld.so/
+gnome-text-editor/dot-var/app/org.gnome.TextEditor/cache/
+gnome-text-editor/dot-var/app/org.gnome.TextEditor/config/
+gnome-text-editor/dot-var/app/org.gnome.TextEditor/data/gvfs-metadata/
+gnome-text-editor/dot-var/app/org.gnome.TextEditor/data/org.gnome.TextEditor/
 podman-connections.json*
 tmux/dot-config/tmux/plugins/
