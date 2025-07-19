@@ -5,3 +5,6 @@
 [submodule "tpm/dot-tmux/plugins/tpm"]
 	path = tpm/dot-tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "emacs/dot-emacs.d"]
+	path = emacs/dot-emacs.d
+	url = https://github.com/16levels/minimal-emacs.d

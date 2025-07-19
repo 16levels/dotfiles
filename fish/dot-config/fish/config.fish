@@ -21,6 +21,12 @@ if status is-interactive
         # OSTree/Immutable Systems
         if [ -e /run/ostree-booted ]
 
+            # environment variables
+            #
+            
+            # abbreviations
+            #
+            abbr -a utop opam exec utop
         end
         #
         # Toolbx Containers
@@ -31,9 +37,10 @@ if status is-interactive
     end
 
     # abbreviations
-    abbr -a antora podman run --rm -i antora/antora
     abbr -a shellcheck podman run --rm -v "$PWD:/mnt":z koalaman/shellcheck:stable
     abbr -a hadolint podman run --rm -i hadolint/hadolint
+    abbr -a antora podman run --rm -i antora/antora
+    abbr -a pip pip3
     abbr -a vi nvim
     
 
