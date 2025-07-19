@@ -1,22 +1,26 @@
 if status is-interactive
 
-    # starship prompt
-    starship init fish | source
 
-    # Operating System
+    # Operating System Specific Routines
     switch (uname)
     case Darwin    
-        # Mac OS Specific
+        # macOS Specific
+        #
+        # environment variables
         #
         # secure enclave ssh integration
-        set -x SSH_AUTH_SOCK $HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+        set -x SSH_AUTH_SOCK "$HOME"/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+
+        # macOS abbreviations
+        abbr -a musicmount sudo -- sh -c "mkdir /Volumes/multimedia && mount -t nfs -o resvport elite:mnt/multimedia /Volumes/multimedia/"
+        abbr -a portup sudo -- sh -c "port selfupdate && port upgrade outdated && port uninstall inactive"
+
     case Linux
         # Linux Specific
         #
         # OSTree/Immutable Systems
         if [ -e /run/ostree-booted ]
-            # alias vi="toolbox run nvim"
-            alias stow="toolbox run stow"
+
         end
         #
         # Toolbx Containers
@@ -26,22 +30,18 @@ if status is-interactive
         #
     end
 
-end
+    # abbreviations
+    abbr -a antora podman run --rm -i antora/antora
+    abbr -a shellcheck podman run --rm -v "$PWD:/mnt":z koalaman/shellcheck:stable
+    abbr -a hadolint podman run --rm -i hadolint/hadolint
+    abbr -a vi nvim
+    
 
+    # language/development environment variables
+    source "$HOME"/.config/fish/config.d/lang.fish
+    
+    
+    # starship prompt
+    starship init fish | source
 
-# opam configuration
-[ -r '$HOME/.opam/opam-init/init.fish' ] && source '$HOME/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
-
-
-# emacs libvterm integration 
-function vterm_printf;
-    if begin; [  -n "$TMUX" ]  ; and  string match -q -r "screen|tmux" "$TERM"; end
-        # tell tmux to pass the escape sequences through
-        printf "\ePtmux;\e\e]%s\007\e\\" "$argv"
-    else if string match -q -- "screen*" "$TERM"
-        # GNU screen (screen, screen-256color, screen-256color-bce)
-        printf "\eP\e]%s\007\e\\" "$argv"
-    else
-        printf "\e]%s\e\\" "$argv"
-    end
 end
