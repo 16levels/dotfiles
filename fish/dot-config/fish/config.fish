@@ -12,8 +12,8 @@ if status is-interactive
         set -x SSH_AUTH_SOCK "$HOME"/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
         # macOS abbreviations
-        abbr -a musicmount sudo -- sh -c "mkdir /Volumes/multimedia && mount -t nfs -o resvport elite:mnt/multimedia /Volumes/multimedia/"
-        abbr -a portup sudo -- sh -c "port selfupdate && port upgrade outdated && port uninstall inactive"
+        abbr -a musicmount sudo -- sh -c "'mkdir /Volumes/multimedia && mount -t nfs -o resvport elite:mnt/multimedia /Volumes/multimedia/'"
+        abbr -a portup sudo -- sh -c "'port selfupdate && port upgrade outdated && port uninstall inactive'"
 
     case Linux
         # Linux Specific
