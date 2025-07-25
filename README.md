@@ -8,14 +8,16 @@ cd ~/.dotfiles
 echo 'containers emacs fish ghostty nvim tmux tpm' | xargs -n1 stow --adopt --dotfiles
 ```
 
-**Shell:** [fish](https://fishshell.com) with [Starship](https://starship.rs) prompt.
+**Shell:** [fish](https://fishshell.com) with [Starship](https://starship.rs) prompt[^install_starship].
 
 **Editor(s):**
+- GNU Emacs - [minimal-emacs.d](https://github.com/jamescherti/minimal-emacs.d) used as as base for configuration.
+- Neovim - [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) used as base for configuration.
 
-GNU Emacs - [minimal-emacs.d](https://github.com/jamescherti/minimal-emacs.d) used as as base for configuration.
+**Fonts:**
 
-Neovim - [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) used as base for configuration.
-
+- [Iosevka](https://typeof.net/Iosevka/) (Term, Aile)
+- [Nerd Fonts](https://nerdfonts.com)
 
 ## Fedora Silverblue
 
@@ -68,9 +70,7 @@ org.raspberrypi.rpi-imager \
 org.turbowarp.TurboWarp
 ```
 
-[RPM Fusion](https://rpmfusion.org/Configuration)
-
-[Proprietary NVIDIA Drivers](https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29)
+*In the case of a workstation with an NVIDIA GPU, [RPM Fusion](https://rpmfusion.org/Configuration) should be enabled in order to install [Proprietary NVIDIA Drivers](https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29).*
 
 ## macOS
 Package Manager - [MacPorts](https://www.macports.org/install.php)
@@ -80,3 +80,6 @@ Terminal Emulator - [Ghostty](https://ghostty.org/download)
 Container Engine - [Podman](https://podman.io)
 
 Linux Virtualization - [Lima](https://lima-vm.io)
+
+
+[^install_starship]: Under macOS I use MacPorts to install. Under Linux I use `cargo` in lieu of a package available in the distribution's official repos. If necessary, it can be istalled locally with the one-liner: `curl -sS https://starship.rs/install.sh | sh -s -- -y`.
