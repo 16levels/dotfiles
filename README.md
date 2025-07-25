@@ -11,7 +11,7 @@ echo 'containers emacs fish ghostty nvim tmux tpm' | xargs -n1 stow --adopt --do
 **Shell:** [fish](https://fishshell.com) with [Starship](https://starship.rs) prompt[^install_starship].
 
 **Editor(s):**
-- GNU Emacs - [minimal-emacs.d](https://github.com/jamescherti/minimal-emacs.d) used as as base for configuration.
+- GNU Emacs - [minimal-emacs.d](https://github.com/jamescherti/minimal-emacs.d) used as base for configuration.
 - Neovim - [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) used as base for configuration.
 
 **Fonts:**
@@ -70,7 +70,7 @@ org.raspberrypi.rpi-imager \
 org.turbowarp.TurboWarp
 ```
 
-**Settings:**
+**GNOME Settings:**
 ```console
 dconf load / <<EOF
 [org/gnome/desktop/background]
