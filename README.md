@@ -165,13 +165,16 @@ sed 's/Icon=org.gnome.Ptyxis/Icon=ptyxis/g' /usr/share/applications/org.gnome.Pt
 *In the case of a workstation with an NVIDIA GPU, [RPM Fusion](https://rpmfusion.org/Configuration) should be enabled in order to install [Proprietary NVIDIA Drivers](https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29).*
 
 ## macOS
-Package Manager - [MacPorts](https://www.macports.org/install.php)
+**Essential Software:**
+- [MacPorts](https://www.macports.org/install.php): Package manager similar to BSD ports collections.
 
-Terminal Emulator - [Ghostty](https://ghostty.org/download)
+- [Ghostty](https://ghostty.org/download): Terminal emulator that uses platform-native UI and GPU acceleration
 
-Container Engine - [Podman](https://podman.io)
+- [Secretive](https://github.com/maxgoedjen/secretive): Store SSH keys in the Secure Enclave.
 
-Linux Virtualization - [Lima](https://lima-vm.io)
+- [Podman](https://podman.io): A daemonless container engine.
+
+- [Lima](https://lima-vm.io): Linux virtual machines with automatic file sharing and port forwarding (similar to WSL2).
 
 
 [^install_starship]: Under macOS I use MacPorts to install. Under Linux I use `cargo` in lieu of a package available in the distribution's official repos. If necessary, it can be installed locally with the one-liner: `curl -sS https://starship.rs/install.sh | sh -s -- -y`.
