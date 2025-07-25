@@ -70,6 +70,35 @@ org.raspberrypi.rpi-imager \
 org.turbowarp.TurboWarp
 ```
 
+**Settings:**
+```console
+dconf load / <<EOF
+
+
+EOF
+```
+
+**GNOME Text Editor (Flatpak):**
+```console
+echo "style-scheme 'catppuccin' \
+custom-font 'Iosevka 12' \
+show-line-numbers true \
+keybindings 'vim' \
+show-map true" | \
+xargs -n2 flatpak run --command=gsettings org.gnome.TextEditor set org.gnome.TextEditor
+```
+
+**Replace Ptyxis (Terminal) icon:**
+```bash
+#!/bin/sh
+
+icon_url='https://gitlab.gnome.org/chergert/ptyxis/-/raw/main/data/icons/ptyxis.svg'
+
+curl -O --create-dirs --output-dir "$HOME"/.local/share/icons/hicolor/scalable/apps/ $icon_url
+sed 's/Icon=org.gnome.Ptyxis/Icon=ptyxis/g' /usr/share/applications/org.gnome.Ptyxis.desktop > \
+	"$HOME"/.local/share/applications/org.gnome.Ptyxis.desktop
+```
+
 *In the case of a workstation with an NVIDIA GPU, [RPM Fusion](https://rpmfusion.org/Configuration) should be enabled in order to install [Proprietary NVIDIA Drivers](https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29).*
 
 ## macOS
@@ -82,4 +111,4 @@ Container Engine - [Podman](https://podman.io)
 Linux Virtualization - [Lima](https://lima-vm.io)
 
 
-[^install_starship]: Under macOS I use MacPorts to install. Under Linux I use `cargo` in lieu of a package available in the distribution's official repos. If necessary, it can be istalled locally with the one-liner: `curl -sS https://starship.rs/install.sh | sh -s -- -y`.
+[^install_starship]: Under macOS I use MacPorts to install. Under Linux I use `cargo` in lieu of a package available in the distribution's official repos. If necessary, it can be installed locally with the one-liner: `curl -sS https://starship.rs/install.sh | sh -s -- -y`.
