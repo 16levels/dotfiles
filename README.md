@@ -8,6 +8,15 @@ cd ~/.dotfiles
 echo 'containers emacs fish ghostty nvim tmux tpm' | xargs -n1 stow --adopt --dotfiles
 ```
 
+**Shell:** [fish](https://fishshell.com) with [Starship](https://starship.rs) prompt.
+
+**Editor(s):**
+
+GNU Emacs - [minimal-emacs.d](https://github.com/jamescherti/minimal-emacs.d) used as as base for configuration.
+
+Neovim - [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) used as base for configuration.
+
+
 ## Fedora Silverblue
 
 **Layered Packages:**
