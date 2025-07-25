@@ -73,8 +73,59 @@ org.turbowarp.TurboWarp
 **Settings:**
 ```console
 dconf load / <<EOF
+[org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/gnome/blobs-l.svg'
+picture-uri-dark='file:///usr/share/backgrounds/gnome/blobs-d.svg'
+primary-color='#241f31'
+secondary-color='#000000'
 
+[org/gnome/desktop/input-sources]
+mru-sources=[('xkb', 'us+dvorak'), ('xkb', 'us')]
+sources=[('xkb', 'us+dvorak'), ('xkb', 'us')]
 
+[org/gnome/desktop/interface]
+accent-color='red'
+color-scheme='default'
+cursor-theme='Yaru'
+document-font-name='Adwaita Sans 12'
+font-antialiasing='rgba'
+font-hinting='full'
+font-name='Adwaita Sans 12'
+gtk-theme='Yaru-red'
+icon-theme='Yaru-red'
+monospace-font-name='Adwaita Mono 12'
+toolkit-accessibility=false
+
+[org/gnome/desktop/screensaver]
+picture-uri='file:///usr/share/backgrounds/gnome/blobs-l.svg'
+primary-color='#241f31'
+secondary-color='#000000'
+
+[org/gnome/desktop/search-providers]
+enabled=['org.gnome.Calculator.desktop']
+
+[org/gnome/nautilus/list-view]
+use-tree-view=true
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='list-view'
+migrated-gtk-settings=true
+search-filter-time-type='last_modified'
+
+[org/gnome/shell]
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']
+favorite-apps=['org.gnome.Ptyxis.desktop', 'org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'org.gnu.emacs.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Software.desktop']
+
+[org/gnome/shell/extensions/dash-to-dock]
+always-center-icons=true
+custom-theme-shrink=true
+dock-position='RIGHT'
+preferred-monitor-by-connector='DP-1'
+transparency-mode='DYNAMIC'
+
+[org/gnome/shell/weather]
+automatic-location=true
+locations=[<(uint32 2, <('Raleigh-Durham International Airport', 'KRDU', false, [(0.62605930672100707, -1.3750818938070426)], @a(dd) [])>)>]
 EOF
 ```
 
