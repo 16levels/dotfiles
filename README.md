@@ -34,6 +34,7 @@ gnome-shell-extension-blur-my-shell \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-frippery-move-clock \
 gstreamer1-plugin-openh264 \
+intel-media-driver \
 neovim \
 qemu-user-static \
 restic \
@@ -65,6 +66,7 @@ net._86box._86Box \
 net._86box._86Box.ROMs \
 org.featherwallet.Feather \
 org.fedoraproject.MediaWriter \
+org.gimp.GIMP \
 org.gnu.emacs \
 org.raspberrypi.rpi-imager \
 org.turbowarp.TurboWarp
@@ -175,15 +177,15 @@ org.freedesktop.Sdk.Extension.typescript
 sudo flatpak override --env="FLATPAK_ENABLE_SDK_EXT=*" org.gnu.emacs
 ```
 
-*In the case of a workstation with an NVIDIA GPU, [RPM Fusion](https://rpmfusion.org/Configuration) should be enabled in order to install [Proprietary NVIDIA Drivers](https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29).*
+*[RPM Fusion](https://rpmfusion.org/Configuration) should be enabled in order to install [Proprietary NVIDIA Drivers](https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29) and hardware decoding support.*
 
 ## macOS
 **Essential Software:**
-- [MacPorts](https://www.macports.org/install.php): Package manager similar to BSD ports collections.
+- [MacPorts](https://www.macports.org/install.php): Package manager similar to the BSD ports collections.
 
-- [Ghostty](https://ghostty.org/download): Terminal emulator that uses platform-native UI and GPU acceleration
+- [Ghostty](https://ghostty.org/download): Terminal emulator that uses platform-native UI and GPU acceleration.
 
-- [Secretive](https://github.com/maxgoedjen/secretive): Store SSH keys in the Secure Enclave.
+- [Secretive](https://github.com/maxgoedjen/secretive): Stores SSH keys in the Secure Enclave.
 
 - [Podman](https://podman.io): A daemonless container engine.
 
