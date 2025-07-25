@@ -71,7 +71,8 @@ org.turbowarp.TurboWarp
 ```
 
 **GNOME Settings:**
-```console
+```bash
+#!/bin/sh
 dconf load / <<EOF
 [org/gnome/desktop/background]
 picture-uri='file:///usr/share/backgrounds/gnome/blobs-l.svg'
