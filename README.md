@@ -1,0 +1,73 @@
+# 16levels/dotfiles
+
+I use [Stow](https://www.gnu.org/software/stow/manual/html_node/index.html), a symlink farm manager, to help organize dotfiles in Linux and macOS. Each directory represents a Stow package, and can be installed using the `--dotfiles` option.
+
+```console
+git clone https://github.com/16levels/dotfiles ~/.dotfiles
+cd ~/.dotfiles
+echo 'containers emacs fish ghostty nvim tmux tpm' | xargs -n1 stow --adopt --dotfiles
+```
+
+## Fedora Silverblue
+
+**Layered Packages:**
+```console
+rpm-ostree install --apply-live \
+bat \
+distrobox \
+fastfetch \
+fd-find \
+fish \
+fortune-mod \
+gnome-shell-extension-blur-my-shell \
+gnome-shell-extension-dash-to-dock \
+gnome-shell-extension-frippery-move-clock \
+gstreamer1-plugin-openh264 \
+neovim \
+qemu-user-static \
+restic \
+ripgrep \
+stow \
+syncthing \
+tailscale \
+tmux \
+x3270-text \
+yaru-theme
+```
+
+**Flatpak Packages**
+```console
+flatpak install app.drey.Warp \
+ca.desrt.dconf-editor \
+com.bitwarden.desktop \
+com.bitwig.BitwigStudio \
+com.blitterstudio.amiberry \
+com.github.flxzt.rnote \
+com.github.johnfactotum.Foliate \
+dev.qwery.AddWater \
+fm.reaper.Reaper \
+io.github.cmus.cmus \
+io.github.dosbox-staging \
+io.gitlab.news_flash.NewsFlash \
+io.podman_desktop.PodmanDesktop \
+net._86box._86Box \
+net._86box._86Box.ROMs \
+org.featherwallet.Feather \
+org.fedoraproject.MediaWriter \
+org.gnu.emacs \
+org.raspberrypi.rpi-imager \
+org.turbowarp.TurboWarp
+```
+
+[RPM Fusion](https://rpmfusion.org/Configuration)
+
+[Proprietary NVIDIA Drivers](https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29)
+
+## macOS
+Package Manager - [MacPorts](https://www.macports.org/install.php)
+
+Terminal Emulator - [Ghostty](https://ghostty.org/download)
+
+Container Engine - [Podman](https://podman.io)
+
+Linux Virtualization - [Lima](https://lima-vm.io)
