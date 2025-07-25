@@ -162,6 +162,19 @@ sed 's/Icon=org.gnome.Ptyxis/Icon=ptyxis/g' /usr/share/applications/org.gnome.Pt
 	"$HOME"/.local/share/applications/org.gnome.Ptyxis.desktop
 ```
 
+**Install/Enable Flatpak SDK Extensions:**
+```bash
+#!/bin/sh
+flatpak install \
+org.freedesktop.Sdk.Extension.golang \
+org.freedesktop.Sdk.Extension.node24 \
+org.freedesktop.Sdk.Extension.ocaml \
+org.freedesktop.Sdk.Extension.rust-stable \
+org.freedesktop.Sdk.Extension.typescript
+
+sudo flatpak override --env="FLATPAK_ENABLE_SDK_EXT=*" org.gnu.emacs
+```
+
 *In the case of a workstation with an NVIDIA GPU, [RPM Fusion](https://rpmfusion.org/Configuration) should be enabled in order to install [Proprietary NVIDIA Drivers](https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29).*
 
 ## macOS
