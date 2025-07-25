@@ -86,6 +86,7 @@ window-size=(uint32 107, uint32 29)
 
 [org/gnome/Ptyxis/Profiles/f5cc43dec2bd7af123df189667e05979]
 palette='Catppuccin Frappe-Latte'
+opacity='0.94'
 
 [org/gnome/desktop/background]
 picture-uri='file:///usr/share/backgrounds/gnome/blobs-l.svg'
