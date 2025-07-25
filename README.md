@@ -74,6 +74,17 @@ org.turbowarp.TurboWarp
 ```bash
 #!/bin/sh
 dconf load / <<EOF
+[org/gnome/Ptyxis]
+default-profile-uuid='f5cc43dec2bd7af123df189667e05979'
+font-name='Iosevka Term 12'
+interface-style='system'
+profile-uuids=['f5cc43dec2bd7af123df189667e05979']
+use-system-font=false
+window-size=(uint32 107, uint32 29)
+
+[org/gnome/Ptyxis/Profiles/f5cc43dec2bd7af123df189667e05979]
+palette='Catppuccin Frappe-Latte'
+
 [org/gnome/desktop/background]
 picture-uri='file:///usr/share/backgrounds/gnome/blobs-l.svg'
 picture-uri-dark='file:///usr/share/backgrounds/gnome/blobs-d.svg'
