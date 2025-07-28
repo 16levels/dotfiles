@@ -37,9 +37,16 @@ if status is-interactive
     end
 
     # abbreviations
+    abbr -a asciidoctor-revealjs podman run --rm -it -v="$PWD":/documents/:z docker.io/asciidoctor/docker-asciidoctor asciidoctor-revealjs
+    abbr -a asciidoctor-epub3 podman run --rm -it -v="$PWD":z docker.io/asciidoctor/docker-asciidoctor asciidoctor-epub3
+    abbr -a asciidoctor-pdf podman run --rm -it -v="$PWD":z docker.io/asciidoctor/docker-asciidoctor asciidoctor-pdf
+    abbr -a asciidoctor podman run --rm -it -v="$PWD":/documents/:z docker.io/asciidoctor/docker-asciidoctor asciidoctor
     abbr -a shellcheck podman run --rm -v "$PWD:/mnt":z koalaman/shellcheck:stable
+    abbr -a --set-cursor=! tsen tailscale set --exit-node=us-!
     abbr -a hadolint podman run --rm -i hadolint/hadolint
     abbr -a antora podman run --rm -i antora/antora
+    abbr -a tsens tailscale exit-node suggest
+    abbr -a ts tailscale
     abbr -a pip pip3
     abbr -a vi nvim
     
