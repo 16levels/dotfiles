@@ -44,10 +44,10 @@ set termguicolors
 
 " Set vim and lightline colorschemes.
 let g:lightline = {'colorscheme': 'catppuccin_frappe'}
-silent! colorscheme catppuccin_frappe
+silent! colo catppuccin_frappe
 
 " Emphasize text of current line & customize line number colors.
-set cursorline
+set cul
 hi LineNr ctermfg=8
 hi CursorLineNr ctermfg=7 term=bold cterm=bold
 
@@ -56,5 +56,4 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 " Fold code by syntax.
-set foldmethod=syntax
-set nofoldenable
+set fdm=syntax nofen
