@@ -1,38 +1,59 @@
 " Disable strict `vi` compatibility.
 set nocp
+
 " Do not allow ':autocmd', shell or write commands in '.exrc' files found in
 " the current directory and display map commands.
 set secure
-" Enable true color support
-set termguicolors
+
 " Enable statusline
-set statusline=%f%m%=%(%l,%c%)%y%r
 set laststatus=2
-hi statusline ctermfg=4
-" Use light background by default
-set bg=light
+
 " Enable syntax highlighting
-silent! syntax on
+syntax on
+
 " Enable relative line numbers
 set nu rnu
-" ts: Number of spaces that a '<Tab>' in the file counts for.
-" sw: Number of spaces to use for each step of (auto)indent.
+
 " et: Use the appropriate number of spaces to insert a '<Tab>' in Insert mode.
-set ts=4 sw=4 et
+set et
+
 " ai: Copy indent from current line when starting a new line.
 " si: Do smart autoindenting when starting a new line.
 " sm: When a bracket is inserted, briefly jump to the matching one.
 set ai si sm
+
 " ic: Searches should ignore case.
 set ic
+
 " Map the key sequence 'jk' to '<ESC>' in Insert mode.
 ino jk <esc>
-" Automatically close brackets in Insert mode.
-ino ( ()<esc>ha
-ino [ []<esc>ha
-ino { {}<esc>ha
+
+" Package configuration:
+call plug#begin()
+
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'itchyny/lightline.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-sleuth'
+
+call plug#end()
+
+" Enable true color support.
+set termguicolors
+
+" Set vim and lightline colorschemes.
+let g:lightline = {'colorscheme': 'catppuccin_frappe'}
+silent! colorscheme catppuccin_frappe
+
 " Emphasize text of current line & customize line number colors.
 set cursorline
 hi LineNr ctermfg=8
-hi CursorLine term=bold cterm=bold
-hi CursorLineNr ctermfg=4 term=bold cterm=bold
+hi CursorLineNr ctermfg=7 term=bold cterm=bold
+
+" Enable `vim-indent-guides`.
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+
+" Fold code by indentation level.
+set foldmethod=syntax
+set nofoldenable

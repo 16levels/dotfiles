@@ -14,3 +14,4 @@ gnome-text-editor/dot-var/app/org.gnome.TextEditor/data/gvfs-metadata/
 gnome-text-editor/dot-var/app/org.gnome.TextEditor/data/org.gnome.TextEditor/
 podman-connections.json*
 tmux/dot-config/tmux/plugins/
+vim/dot-vim/plugged/

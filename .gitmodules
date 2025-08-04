@@ -7,3 +7,12 @@
 [submodule "nvim/dot-config/nvim"]
 	path = nvim/dot-config/nvim
 	url = https://github.com/16levels/kickstart-modular.nvim
+[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-polyglot"]
+	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/lightline"]
+	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/lightline
+	url = https://github.com/itchyny/lightline.vim
+[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-indent-guides"]
+	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-indent-guides
+	url = https://github.com/preservim/vim-indent-guides.git
