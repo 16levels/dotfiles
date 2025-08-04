@@ -33,6 +33,7 @@ call plug#begin()
 
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
+"Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-sleuth'
 
@@ -54,6 +55,6 @@ hi CursorLineNr ctermfg=7 term=bold cterm=bold
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
-" Fold code by indentation level.
+" Fold code by syntax.
 set foldmethod=syntax
 set nofoldenable
