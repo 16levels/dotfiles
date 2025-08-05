@@ -1,59 +1,31 @@
-" Disable strict `vi` compatibility.
-set nocp
-
-" Do not allow ':autocmd', shell or write commands in '.exrc' files found in
-" the current directory and display map commands.
-set secure
-
-" Enable statusline
-set laststatus=2
-
-" Enable syntax highlighting
-syntax on
-
-" Enable relative line numbers
-set nu rnu
-
-" et: Use the appropriate number of spaces to insert a '<Tab>' in Insert mode.
-set et
-
-" ai: Copy indent from current line when starting a new line.
-" si: Do smart autoindenting when starting a new line.
-" sm: When a bracket is inserted, briefly jump to the matching one.
-set ai si sm
-
-" ic: Searches should ignore case.
-set ic
+" `vim` configuration, 'huge' version
+" cory farmer/16levels
+set nocp   " Disable strict `vi` compatibility.
+set secure " Do not allow unsafe commands in '.exrc' files/display all maps.
+set ls=2   " Enable statusline
+set nu rnu " Enable relative line numbers
+set et     " Use the appropriate number of spaces to insert a '<Tab>'.
+set ai     " Copy indent from current line when starting a new line.
+set si     " Do smart autoindenting when starting a new line.
+set sm     " When a bracket is inserted, briefly jump to the matching one.
+set ic     " Searches should ignore case.
+set tgc    " Enable true color support.
+set cul    " Emphasize current line.
+syntax on  " Enable syntax highlighting
 
 " Map the key sequence 'jk' to '<ESC>' in Insert mode.
 ino jk <esc>
 
-" Package configuration:
+" vim-plug packages:
 call plug#begin()
 
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
-"Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
-" Enable true color support.
-set termguicolors
-
 " Set vim and lightline colorschemes.
 let g:lightline = {'colorscheme': 'catppuccin_frappe'}
 silent! colo catppuccin_frappe
-
-" Emphasize text of current line & customize line number colors.
-set cul
-hi LineNr ctermfg=8
-hi CursorLineNr ctermfg=7 term=bold cterm=bold
-
-" Enable `vim-indent-guides`.
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
-
-" Fold code by syntax.
-set fdm=syntax nofen
