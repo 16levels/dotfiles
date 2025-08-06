@@ -4,13 +4,24 @@ if status is-interactive
     #
 
     # asciidoctor container
-    abbr -a asciidoctor-revealjs podman run --rm -it -v="$PWD":/documents/:z docker.io/asciidoctor/docker-asciidoctor asciidoctor-revealjs
-    abbr -a asciidoctor-epub3 podman run --rm -it -v="$PWD":z docker.io/asciidoctor/docker-asciidoctor asciidoctor-epub3
-    abbr -a asciidoctor-pdf podman run --rm -it -v="$PWD":z docker.io/asciidoctor/docker-asciidoctor asciidoctor-pdf
-    abbr -a asciidoctor podman run --rm -it -v="$PWD":/documents/:z docker.io/asciidoctor/docker-asciidoctor asciidoctor
+    abbr -a asciidoctor-revealjs podman run --rm -it -v="\$PWD:/documents/:z" docker.io/asciidoctor/docker-asciidoctor asciidoctor-revealjs
+    abbr -a asciidoctor-epub3 podman run --rm -it -v="\$PWD:z" docker.io/asciidoctor/docker-asciidoctor asciidoctor-epub3
+    abbr -a asciidoctor-pdf podman run --rm -it -v="\$PWD:z" docker.io/asciidoctor/docker-asciidoctor asciidoctor-pdf
+    abbr -a asciidoctor podman run --rm -it -v="\$PWD:/documents/:z" docker.io/asciidoctor/docker-asciidoctor asciidoctor
+
+    # hercules container
+    abbr -a --set-cursor=! hercules podman run --rm -it \
+        --cap-add=NET_ADMIN,SYS_NICE \
+        --userns=keep-id \
+        -p 3270:3270 -p 8038:8038 \
+        -v "\$PWD!:/home/hercules/:z" \
+        -w /home/hercules/ \
+        -e HERCULES_CNF="hercules.cnf" \
+        -e HERCULES_RC="hercules.rc" \
+        ghcr.io/16levels/hercules
 
     # shellcheck container
-    abbr -a shellcheck podman run --rm -v "$PWD:/mnt":z koalaman/shellcheck:stable
+    abbr -a shellcheck podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable
 
     # hadolint container
     abbr -a hadolint podman run --rm -i hadolint/hadolint
