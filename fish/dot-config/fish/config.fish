@@ -40,6 +40,9 @@ if status is-interactive
     # vi -> nvim
     abbr -a vi nvim
 
+    # cat -> bat
+    abbr -a cat bat
+
     # Operating System Specific Routines
     switch (uname)
         case Darwin
