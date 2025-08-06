@@ -7,21 +7,21 @@
 [submodule "nvim/dot-config/nvim"]
 	path = nvim/dot-config/nvim
 	url = https://github.com/16levels/kickstart-modular.nvim
-[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-polyglot"]
-	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-polyglot
+[submodule "vim/dot-vim/pack/plugins/start/vim-polyglot"]
+	path = vim/dot-vim/pack/plugins/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
-[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/lightline"]
-	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/lightline
+[submodule "vim/dot-vim/pack/plugins/start/lightline"]
+	path = vim/dot-vim/pack/plugins/start/lightline
 	url = https://github.com/itchyny/lightline.vim
-[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-indent-guides"]
-	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-indent-guides
+[submodule "vim/dot-vim/pack/plugins/start/vim-indent-guides"]
+	path = vim/dot-vim/pack/plugins/start/vim-indent-guides
 	url = https://github.com/preservim/vim-indent-guides.git
-[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/auto-pairs"]
-	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/auto-pairs
+[submodule "vim/dot-vim/pack/plugins/start/auto-pairs"]
+	path = vim/dot-vim/pack/plugins/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
-[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/catppuccin"]
-	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/catppuccin
+[submodule "vim/dot-vim/pack/plugins/start/catppuccin"]
+	path = vim/dot-vim/pack/plugins/start/catppuccin
 	url = https://github.com/catppuccin/vim
-[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-sleuth"]
-	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-sleuth
+[submodule "vim/dot-vim/pack/plugins/start/vim-sleuth"]
+	path = vim/dot-vim/pack/plugins/start/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
