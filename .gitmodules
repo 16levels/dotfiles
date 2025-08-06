@@ -25,3 +25,6 @@
 [submodule "vim/dot-vim/pack/plugins/start/vim-sleuth"]
 	path = vim/dot-vim/pack/plugins/start/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
+[submodule "tmux/dot-tmux/plugins/tpm"]
+	path = tmux/dot-tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
