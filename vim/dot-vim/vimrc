@@ -17,14 +17,14 @@ syntax on  " Enable syntax highlighting
 ino jk <esc>
 
 " vim-plug packages:
-call plug#begin()
-
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'itchyny/lightline.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-sleuth'
-
-call plug#end()
+"call plug#begin()
+"
+"Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+"Plug 'itchyny/lightline.vim'
+"Plug 'jiangmiao/auto-pairs'
+"Plug 'tpope/vim-sleuth'
+"
+"call plug#end()
 
 " Set vim and lightline colorschemes.
 let g:lightline = {'colorscheme': 'catppuccin_frappe'}

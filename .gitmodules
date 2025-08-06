@@ -16,3 +16,12 @@
 [submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-indent-guides"]
 	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-indent-guides
 	url = https://github.com/preservim/vim-indent-guides.git
+[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/auto-pairs"]
+	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
+[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/catppuccin"]
+	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/catppuccin
+	url = https://github.com/catppuccin/vim
+[submodule "/Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-sleuth"]
+	path = /Users/cory/.dotfiles/vim/dot-vim/pack/plugins/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth
