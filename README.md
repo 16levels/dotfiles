@@ -29,13 +29,16 @@ distrobox \
 fastfetch \
 fd-find \
 fish \
+flatpak-builder \
 fortune-mod \
+fzf \
 gnome-shell-extension-blur-my-shell \
+gnome-shell-extension-caffeine \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-frippery-move-clock \
-gstreamer1-plugin-openh264 \
-intel-media-driver \
 neovim \
+podman-compose \
+podman-tui \
 qemu-user-static \
 restic \
 ripgrep \
@@ -43,6 +46,7 @@ stow \
 syncthing \
 tailscale \
 tmux \
+virt-manager \
 x3270-text \
 yaru-theme
 ```
@@ -55,12 +59,14 @@ com.bitwarden.desktop \
 com.bitwig.BitwigStudio \
 com.blitterstudio.amiberry \
 com.github.flxzt.rnote \
+com.logseq.Logseq \
 com.github.johnfactotum.Foliate \
 dev.qwery.AddWater \
 fm.reaper.Reaper \
 io.github.cmus.cmus \
 io.github.dosbox-staging \
 io.gitlab.news_flash.NewsFlash \
+io.neovim.nvim \
 io.podman_desktop.PodmanDesktop \
 net._86box._86Box \
 net._86box._86Box.ROMs \
@@ -68,8 +74,10 @@ org.featherwallet.Feather \
 org.fedoraproject.MediaWriter \
 org.gimp.GIMP \
 org.gnu.emacs \
+org.racket_lang.Racket \
 org.raspberrypi.rpi-imager \
-org.turbowarp.TurboWarp
+org.turbowarp.TurboWarp \
+sh.loft.devpod
 ```
 
 **GNOME Settings:**
@@ -128,7 +136,7 @@ migrated-gtk-settings=true
 search-filter-time-type='last_modified'
 
 [org/gnome/shell]
-enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'caffeine@patapon.info']
 favorite-apps=['org.gnome.Ptyxis.desktop', 'org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'org.gnu.emacs.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Software.desktop']
 
 [org/gnome/shell/extensions/dash-to-dock]
@@ -170,11 +178,14 @@ sed 's/Icon=org.gnome.Ptyxis/Icon=ptyxis/g' /usr/share/applications/org.gnome.Pt
 #!/bin/sh
 flatpak install \
 org.freedesktop.Sdk.Extension.golang \
+org.freedesktop.Sdk.Extension.llvm20 \
 org.freedesktop.Sdk.Extension.node24 \
 org.freedesktop.Sdk.Extension.ocaml \
+org.freedesktop.Sdk.Extension.openjdk \
 org.freedesktop.Sdk.Extension.rust-stable \
 org.freedesktop.Sdk.Extension.typescript
 
+sudo flatpak override --env="FLATPAK_ENABLE_SDK_EXT=*" io.neovim.nvim
 sudo flatpak override --env="FLATPAK_ENABLE_SDK_EXT=*" org.gnu.emacs
 ```
 
