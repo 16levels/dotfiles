@@ -3,9 +3,9 @@
 I use [Stow](https://www.gnu.org/software/stow/manual/html_node/index.html), a symlink farm manager, to help organize dotfiles in Linux and macOS. Each directory represents a Stow package, and can be installed using the `--dotfiles` option.
 
 ```console
-git clone https://github.com/16levels/dotfiles ~/.dotfiles
+git clone --recurse-submodules https://github.com/16levels/dotfiles ~/.dotfiles
 cd ~/.dotfiles
-echo 'containers emacs fish ghostty nvim tmux tpm' | xargs -n1 stow --adopt --dotfiles
+echo 'bat cmus containers distrobox emacs fish ghostty gnome nvim tmux vim' | xargs -n1 stow --adopt --dotfiles
 ```
 
 **Shell:** [fish](https://fishshell.com) with [Starship](https://starship.rs) prompt[^install_starship].
@@ -189,7 +189,7 @@ sudo flatpak override --env="FLATPAK_ENABLE_SDK_EXT=*" io.neovim.nvim
 sudo flatpak override --env="FLATPAK_ENABLE_SDK_EXT=*" org.gnu.emacs
 ```
 
-*[RPM Fusion](https://rpmfusion.org/Configuration) should be enabled in order to install [Proprietary NVIDIA Drivers](https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29) and hardware decoding support.*
+*[RPM Fusion](https://rpmfusion.org/Configuration) should be enabled in order to install [proprietary NVIDIA drivers](https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29) and [multimedia codecs](https://rpmfusion.org/Howto/OSTree).*
 
 ## macOS
 **Essential Software:**
