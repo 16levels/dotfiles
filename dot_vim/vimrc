@@ -1,0 +1,21 @@
+" `vim` configuration, 'huge' version
+" cory farmer/16levels
+set nocp   " Disable strict `vi` compatibility.
+set secure " Do not allow unsafe commands in '.exrc' files/display all maps.
+set ls=2   " Enable statusline
+set nu rnu " Enable relative line numbers
+set et     " Use the appropriate number of spaces to insert a '<Tab>'.
+set ai     " Copy indent from current line when starting a new line.
+set si     " Do smart autoindenting when starting a new line.
+set sm     " When a bracket is inserted, briefly jump to the matching one.
+set ic     " Searches should ignore case.
+set tgc    " Enable true color support.
+set cul    " Emphasize current line.
+syntax on  " Enable syntax highlighting
+
+" Map the key sequence 'jk' to '<ESC>' in Insert mode.
+ino jk <esc>
+
+" Set vim and lightline colorschemes.
+let g:lightline = {'colorscheme': 'catppuccin_frappe'}
+silent! colo catppuccin_frappe

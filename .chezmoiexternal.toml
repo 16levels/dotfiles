@@ -1,0 +1,34 @@
+[".emacs.d"]
+    type = "git-repo"
+    url = "https://github.com/16levels/minimal-emacs.d"
+    refreshPeriod = "168h"
+
+[".config/nvim"]
+    type = "git-repo"
+    url = "https://github.com/16levels/kickstart-modular"
+    refreshPeriod = "168h"
+
+[".tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm"
+    refreshPeriod = "168h"
+
+[".vim/pack/auto-pairs/start"]
+    type = "git-repo"
+    url = "https://github.com/jiangmiao/auto-pairs"
+    refreshPeriod = "168h"
+
+[".vim/pack/catppuccin/start"]
+    type = "git-repo"
+    url = "https://github.com/catppuccin/vim"
+    refreshPeriod = "168h"
+
+[".vim/pack/lightline/start"]
+    type = "git-repo"
+    url = "https://github.com/itchyny/lightline.vim"
+    refreshPeriod = "168h"
+
+[".vim/pack/vim-sleuth/start"]
+    type = "git-repo"
+    url = "https://github.com/tpope/vim-sleuth"
+    refreshPeriod = "168h"

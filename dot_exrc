@@ -1,0 +1,28 @@
+" `vim` configuration, 'tiny' version
+" cory farmer/16levels
+set nocp   " Disable strict `vi` compatibility.
+set secure " Do not allow unsafe commands in '.exrc' files/display all maps.
+set tgc    " Enable true color support
+set nu rnu " Enable relative line numbers
+set ts=4   " Number of spaces that a '<Tab>' in the file counts for.
+set sw=4   " Number of spaces to use for each step of (auto)indent.
+set et     " Use the appropriate number of spaces to insert a '<Tab>' in Insert mode.
+set ai     " Copy indent from current line when starting a new line.
+set si     " si: Do smart autoindenting when starting a new line.
+set sm     " sm: When a bracket is inserted, briefly jump to the matching one.
+set ic     " ic: Searches should ignore case.
+set cul    " Emphasize current line.
+set ls=2   " Enable statusline
+set statusline=%f%m%=%(%l,%c%)%y%r
+" Enable syntax highlighting
+silent! syntax on
+" Map the key sequence 'jk' to '<ESC>' in Insert mode.
+ino jk <esc>
+" Automatically close brackets in Insert mode.
+ino ( ()<esc>ha
+ino [ []<esc>ha
+ino { {}<esc>ha
+hi CursorLineNr ctermfg=4 term=bold cterm=bold
+hi CursorLine term=bold cterm=bold
+hi StatusLine ctermfg=4
+hi LineNr ctermfg=8

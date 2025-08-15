@@ -1,0 +1,11 @@
+font-family = "IosevkaTerm NFM"
+font-size = 16
+
+theme = dark:catppuccin-frappe,light:catppuccin-latte
+
+background-opacity = .94
+
+macos-option-as-alt = true
+
+window-height = 32
+window-width = 80
