@@ -32,3 +32,26 @@
     type = "git-repo"
     url = "https://github.com/tpope/vim-sleuth"
     refreshPeriod = "168h"
+
+[".local/share/icons/hicolor/scalable/apps/ptyxis.svg"]
+    type = "file"
+    url = "https://gitlab.gnome.org/chergert/ptyxis/-/raw/main/data/icons/ptyxis.svg"
+
+[".config/bat/themes/Catppuccin Frappe.tmTheme"]
+    type = "file"
+    url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme"
+
+[".config/bat/themes/Catppuccin Latte.tmTheme"]
+    type = "file"
+    url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme"
+
+{{ $iosevkaVersion := "33.2.8" -}}
+[".local/share/fonts/Iosevka.ttc"]
+type = "archive-file"
+url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-Iosevka-{{ $iosevkaVersion }}.zip"
+path = "Iosevka.ttc"
+
+[".local/share/fonts/IosevkaAile.ttc"]
+type = "archive-file"
+url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-IosevkaAile-{{ $iosevkaVersion }}.zip"
+path = "IosevkaAile.ttc"
