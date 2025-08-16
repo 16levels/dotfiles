@@ -1,0 +1,6 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+echo "Installing flatpak packages..."
+flatpak install -y --noninteractive {{ range .packages.linux.flatpaks -}}{{ . | quote }} {{ end -}}
+{{ end -}}
