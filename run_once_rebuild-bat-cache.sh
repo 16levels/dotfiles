@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "Rebuilding font cache..."
-fc-cache -f -v
+echo "Rebuilding bat's cache..."
+bat cache --build
