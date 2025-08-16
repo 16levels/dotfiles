@@ -47,11 +47,24 @@
 
 {{ $iosevkaVersion := "33.2.8" -}}
 [".local/share/fonts/Iosevka.ttc"]
-type = "archive-file"
-url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-Iosevka-{{ $iosevkaVersion }}.zip"
-path = "Iosevka.ttc"
+    type = "archive-file"
+    url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-Iosevka-{{ $iosevkaVersion }}.zip"
+    path = "Iosevka.ttc"
 
 [".local/share/fonts/IosevkaAile.ttc"]
-type = "archive-file"
-url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-IosevkaAile-{{ $iosevkaVersion }}.zip"
-path = "IosevkaAile.ttc"
+    type = "archive-file"
+    url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-IosevkaAile-{{ $iosevkaVersion }}.zip"
+    path = "IosevkaAile.ttc"
+
+{{ $starshipVersion := "1.23.0" -}}
+{{ if eq .chezmoi.osRelease.id "fedora" }}
+[".local/bin/starship"]
+    type = "archive-file"
+    path = "starship"
+    refreshPeriod = "168h"
+{{ if eq .chezmoi.arch "amd64" }}
+    url = "https://github.com/starship/starship/releases/download/v{{ $starshipVersion }}/starship-x86_64-unknown-linux-musl.tar.gz"
+{{ else if eq .chezmoi.arch "arm64" }}
+    url = "https://github.com/starship/starship/releases/download/v{{ $starshipVersion }}/starship-aarch64-unknown-linux-musl.tar.gz"
+{{ end }}
+{{ end }}
