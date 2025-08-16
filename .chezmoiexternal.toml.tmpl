@@ -56,6 +56,10 @@
     url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-IosevkaAile-{{ $iosevkaVersion }}.zip"
     path = "IosevkaAile.ttc"
 
+[".local/share/fonts/IosevkaTermNerdFont-Regular.ttf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/IosevkaTerm/IosevkaTermNerdFont-Regular.ttf"
+
 {{ $starshipVersion := "1.23.0" -}}
 {{ if eq .chezmoi.osRelease.id "fedora" }}
 [".local/bin/starship"]
