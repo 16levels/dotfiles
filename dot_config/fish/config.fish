@@ -1,4 +1,6 @@
 if status is-interactive
+    
+    fish_add_path -ag "$HOME/.local/bin"
 
     # abbreviations
     #
