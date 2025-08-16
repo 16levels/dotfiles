@@ -1,0 +1,32 @@
+# 16levels/dotfiles
+
+**Shell:** [fish](https://fishshell.com) with [Starship](https://starship.rs) prompt[^install_starship].
+
+**Editor(s):**
+- GNU Emacs - [minimal-emacs.d](https://github.com/jamescherti/minimal-emacs.d) used as base for configuration.
+- Neovim - [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) used as base for configuration.
+
+**Fonts:**
+
+- [Iosevka](https://typeof.net/Iosevka/) (Term, Aile)
+- [Nerd Fonts](https://nerdfonts.com)
+
+## Fedora Silverblue
+**Enable Flatpak SDK Extensions:**
+```console
+sudo flatpak override --env="FLATPAK_ENABLE_SDK_EXT=*" org.gnu.emacs
+```
+
+*[RPM Fusion](https://rpmfusion.org/Configuration) should be enabled in order to install [Proprietary NVIDIA Drivers](https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29) and hardware decoding support.*
+
+## macOS
+**Essential Software:**
+- [MacPorts](https://www.macports.org/install.php): Package manager similar to the BSD ports collections.
+
+- [Ghostty](https://ghostty.org/download): Terminal emulator that uses platform-native UI and GPU acceleration.
+
+- [Secretive](https://github.com/maxgoedjen/secretive): Stores SSH keys in the Secure Enclave.
+
+- [Podman](https://podman.io): A daemonless container engine.
+
+- [Lima](https://lima-vm.io): Linux virtual machines with automatic file sharing and port forwarding (similar to WSL2).
