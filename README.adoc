@@ -3,6 +3,7 @@
 **Shell:** https://fishshell.com[fish] with https://starship.rs[Starship] prompt.
 
 **Editor(s):**
+
 - GNU Emacs - https://github.com/jamescherti/minimal-emacs.d[minimal-emacs.d] used as base for configuration.
 - Neovim - https://github.com/nvim-lua/kickstart.nvim[kickstart.nvim] used as base for configuration.
 
