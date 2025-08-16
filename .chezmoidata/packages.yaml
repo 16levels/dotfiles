@@ -1,7 +1,11 @@
 packages:
   linux:
     flatpaks:
+    - 'app/com.github.tchx84.Flatseal'
     - 'app.drey.Warp'
+    - 'app/me.iepure.devtoolbox'
+    - 'app/org.mozilla.Thunderbird'
+    - 'br.app.pw3270.terminal'
     - 'ca.desrt.dconf-editor'
     - 'com.bitwarden.desktop'
     - 'com.bitwig.BitwigStudio'
@@ -48,6 +52,7 @@ packages:
     - 'gnome-shell-extension-frippery-move-clock'
     - 'neovim'
     - 'podman-compose'
+    - 'podman-machine'
     - 'podman-tui'
     - 'rbw'
     - 'restic'
