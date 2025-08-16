@@ -14,6 +14,7 @@ packages:
     - 'io.github.cmus.cmus'
     - 'io.github.dosbox-staging'
     - 'io.gitlab.news_flash.NewsFlash'
+    - 'io.neovim.nvim'
     - 'io.podman_desktop.PodmanDesktop'
     - 'net._86box._86Box'
     - 'net._86box._86Box.ROMs'
