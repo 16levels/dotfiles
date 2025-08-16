@@ -1,6 +1,7 @@
 {{ if eq .chezmoi.os "linux" -}}
+{{ $flatpakRemote := "flathub" -}}
 #!/bin/sh
 
 echo "Installing flatpak packages..."
-flatpak install -y --noninteractive {{ range .packages.linux.flatpaks -}}{{ . | quote }} {{ end -}}
+flatpak install -y --noninteractive {{ $flatpakRemote | quote }} {{ range .packages.linux.flatpak -}}{{ . | quote }} {{ end -}}
 {{ end -}}

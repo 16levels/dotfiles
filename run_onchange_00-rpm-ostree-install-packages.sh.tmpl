@@ -2,5 +2,5 @@
 #!/bin/sh
 
 echo "Layering requested rpms..."
-rpm-ostree install --idempotent {{ range .packages.linux.rpms -}}{{ . | quote }} {{ end -}}
+rpm-ostree install --idempotent {{ range .packages.linux.rpm -}}{{ . | quote }} {{ end -}}
 {{ end -}}
