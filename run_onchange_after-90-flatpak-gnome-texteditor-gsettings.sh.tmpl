@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# gnome-text-editor.ini hash: {{ include "gnome-text-editor.ini" | sha256sum }}
+cat  {{ joinPath .chezmoi.sourceDir "gnome-text-editor.ini" | quote }} | tr '=' ' ' | xargs -n2 flatpak run --command=gsettings org.gnome.TextEditor set org.gnome.TextEditor
