@@ -1,6 +1,0 @@
-{{ if eq .chezmoi.os "linux" -}}
-#!/bin/sh
-
-echo "Layering requested rpms..."
-rpm-ostree install --idempotent {{ range .packages.linux.rpm -}}{{ . | quote }} {{ end -}}
-{{ end -}}
