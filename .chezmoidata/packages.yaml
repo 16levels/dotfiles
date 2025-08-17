@@ -118,6 +118,7 @@ packages:
       - 'gnome-shell-extension-caffeine'
       - 'gnome-shell-extension-dashtodock'
       - 'gnome-shell-extension-user-theme'
+      - 'gnome-software-plugin-flatpak'
       - 'htop'
       - 'neovim'
       - 'podman-compose'
