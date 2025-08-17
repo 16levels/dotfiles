@@ -1,5 +1,14 @@
 # 16levels/dotfiles
 
+To install `chezmoi` and apply this repository's dotfiles, use one of the following:
+
+.curl:
+`sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply 16levels`
+
+.wget:
+`sh -c "$(wget -qO- get.chezmoi.io/lb)" -- init --apply 16levels`
+
+
 **Shell:** https://fishshell.com[fish] with https://starship.rs[Starship] prompt.
 
 **Editor(s):**
