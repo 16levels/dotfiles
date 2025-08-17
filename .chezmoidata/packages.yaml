@@ -38,6 +38,7 @@ packages:
       - 'sh.loft.devpod'
     rpm:
       - 'age'
+      - 'asciidoc'
       - 'bat'
       - 'distrobox'
       - 'fastfetch'
@@ -51,6 +52,7 @@ packages:
       - 'gnome-shell-extension-caffeine'
       - 'gnome-shell-extension-dash-to-dock'
       - 'gnome-shell-extension-frippery-move-clock'
+      - 'htop'
       - 'neovim'
       - 'podman-compose'
       - 'podman-machine'
