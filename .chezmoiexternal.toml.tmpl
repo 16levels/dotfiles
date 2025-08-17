@@ -41,10 +41,11 @@
     type = "file"
     url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme"
 
-{{ $fontDir := ".local/share/fonts" }}
-
+{{ $fontDir := "" }}
 {{ if eq .chezmoi.os "darwin" }}
     {{ $fontDir = "Library/Fonts" }}
+{{ else if eq .chezmoi.os "linux" }}
+    {{ $fontDir = ".local/share/fonts" }}
 {{ end }}
 
 {{ $iosevkaVersion := "33.2.8" -}}
@@ -66,17 +67,20 @@
     exact = true
     stripComponents = 0
 
-{{ if eq .chezmoi.osRelease.id "fedora" }}
+{{ $unameArch := "" }}
+{{ if eq .chezmoi.arch "amd64" }}
+    {{ $unameArch = "x86_64" }}
+{{ else if eq .chezmoi.arch "arm64" }}
+    {{ $unameArch = "aarch64" }}
+{{ end -}}
+
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
 {{ $starshipVersion := "1.23.0" -}}
 [".local/bin/starship"]
     type = "archive-file"
     path = "starship"
     refreshPeriod = "168h"
-{{ if eq .chezmoi.arch "amd64" }}
-    url = "https://github.com/starship/starship/releases/download/v{{ $starshipVersion }}/starship-x86_64-unknown-linux-musl.tar.gz"
-{{ else if eq .chezmoi.arch "arm64" }}
-    url = "https://github.com/starship/starship/releases/download/v{{ $starshipVersion }}/starship-aarch64-unknown-linux-musl.tar.gz"
-{{ end }}
+    url = "https://github.com/starship/starship/releases/download/v{{ $starshipVersion }}/starship-{{ $unameArch }}-unknown-linux-musl.tar.gz"
 
 [".local/share/icons/hicolor/scalable/apps/ptyxis.svg"]
     type = "file"
@@ -84,7 +88,7 @@
 
 {{ end }}
 
-{{ if eq .chezmoi.osRelease.id "debian" }}
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian") }}
 {{ $fripperymoveclockVersion := "48.0" -}}
 [".local/share/gnome-shell/extensions/Move_Clock@rmy.pobox.com/"] 
     include = [".local/share/gnome-shell/extensions/Move_Clock@rmy.pobox.com/*"] 
