@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.5
+Name=Mount 'tank/storage/hz1' SMB Share
+TryExec=gio
+Exec=gio mount smb://t30/tank_storage_hz1
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
