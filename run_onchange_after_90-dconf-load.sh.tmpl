@@ -1,4 +1,4 @@
-{{- if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
 # dconf.ini hash: {{ include "dconf.ini" | sha256sum }}

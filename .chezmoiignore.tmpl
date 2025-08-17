@@ -1,0 +1,10 @@
+README.adoc
+dconf.ini
+run_*.sh*
+
+{{- if eq .chezmoi.os "darwin" }}
+dot_config/autostart/*
+dot_config/distrobox/*
+dot_local/share/*
+dot_var/app/*
+{{- end }}

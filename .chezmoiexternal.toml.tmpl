@@ -41,19 +41,25 @@
     type = "file"
     url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme"
 
+{{ $fontDir := ".local/share/fonts" }}
+
+{{ if eq .chezmoi.os "darwin" }}
+    {{ $fontDir = "Library/Fonts" }}
+{{ end }}
+
 {{ $iosevkaVersion := "33.2.8" -}}
-[".local/share/fonts/Iosevka.ttc"]
+["{{ $fontDir }}/Iosevka.ttc"]
     type = "archive-file"
     url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-Iosevka-{{ $iosevkaVersion }}.zip"
     path = "Iosevka.ttc"
 
-[".local/share/fonts/IosevkaAile.ttc"]
+["{{ $fontDir }}/IosevkaAile.ttc"]
     type = "archive-file"
     url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-IosevkaAile-{{ $iosevkaVersion }}.zip"
     path = "IosevkaAile.ttc"
 
 {{ $nerdfontVersion := "3.4.0" -}}
-[".local/share/fonts/IosevkaTermNerdFont-Regular.ttf"]
+["{{ $fontDir }}/IosevkaTermNerdFont-Regular.ttf"]
     type = "archive-file"
     path = "IosevkaTermNerdFont-Regular.ttf"
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ $nerdfontVersion }}/IosevkaTerm.tar.xz"
