@@ -33,10 +33,6 @@
     url = "https://github.com/tpope/vim-sleuth"
     refreshPeriod = "168h"
 
-[".local/share/icons/hicolor/scalable/apps/ptyxis.svg"]
-    type = "file"
-    url = "https://gitlab.gnome.org/chergert/ptyxis/-/raw/main/data/icons/ptyxis.svg"
-
 [".config/bat/themes/Catppuccin Frappe.tmTheme"]
     type = "file"
     url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme"
@@ -64,8 +60,8 @@
     exact = true
     stripComponents = 0
 
-{{ $starshipVersion := "1.23.0" -}}
 {{ if eq .chezmoi.osRelease.id "fedora" }}
+{{ $starshipVersion := "1.23.0" -}}
 [".local/bin/starship"]
     type = "archive-file"
     path = "starship"
@@ -75,4 +71,19 @@
 {{ else if eq .chezmoi.arch "arm64" }}
     url = "https://github.com/starship/starship/releases/download/v{{ $starshipVersion }}/starship-aarch64-unknown-linux-musl.tar.gz"
 {{ end }}
+
+[".local/share/icons/hicolor/scalable/apps/ptyxis.svg"]
+    type = "file"
+    url = "https://gitlab.gnome.org/chergert/ptyxis/-/raw/main/data/icons/ptyxis.svg"
+
+{{ end }}
+
+{{ if eq .chezmoi.osRelease.id "debian" }}
+{{ $fripperymoveclockVersion := "48.0" -}}
+[".local/share/gnome-shell/extensions/Move_Clock@rmy.pobox.com/"] 
+    include = [".local/share/gnome-shell/extensions/Move_Clock@rmy.pobox.com/*"] 
+    type = "archive"
+    url = "https://frippery.org/extensions/gnome-shell-frippery-{{ $fripperymoveclockVersion }}.tgz"
+    exact = true
+    stripComponents =  5
 {{ end }}
