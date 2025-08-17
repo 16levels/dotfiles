@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+git clone https://github.com/eth-p/bat-extras.git /tmp/bat-extras
+/tmp/bat-extras/build.sh --minify=none --install --prefix="$HOME/.local" {{- if eq .chezmoi.osRelease.id "debian" }} --alternate-executable=batcat{{ end }}
+rm "$HOME/.local/bin/prettybat"
+{{- end }}
