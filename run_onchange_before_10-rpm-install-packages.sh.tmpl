@@ -1,7 +1,6 @@
-{{ if eq .chezmoi.os "linux" -}}
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") -}}
 #!/bin/sh
 
-{{ if eq .chezmoi.osRelease.id "fedora" }}
 {{ if eq .chezmoi.osRelease.variant "Workstation Edition" }}
 echo "Installing requested rpms..."
 sudo dnf -y install {{ range .packages.linux.rpm -}}{{ . | quote }} {{ end -}}
@@ -10,6 +9,5 @@ sudo dnf -y install {{ range .packages.linux.rpm -}}{{ . | quote }} {{ end -}}
 echo "Layering requested rpms..."
 rpm-ostree install --idempotent {{ range .packages.linux.rpm -}}{{ . | quote }} {{ end -}}
 {{ end }}
-{{ end }}
 
-{{ end -}}
+{{- end }}
