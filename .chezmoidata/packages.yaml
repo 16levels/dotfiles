@@ -58,6 +58,7 @@ packages:
       - 'htop'
       - 'neovim'
       - 'podman-compose'
+      - 'ptyxis'
       - 'restic'
       - 'ripgrep'
       - 'starship'
