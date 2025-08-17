@@ -2,11 +2,11 @@
 #!/bin/sh
 
 {{ if eq .chezmoi.osRelease.variant "Workstation Edition" }}
-echo "Installing requested rpms..."
+echo "Installing requested packages (rpm)..."
 sudo dnf -y install {{ range .packages.linux.rpm -}}{{ . | quote }} {{ end -}}
 
 {{ else if eq .chezmoi.osRelease.variant "Silverblue" }}
-echo "Layering requested rpms..."
+echo "Installing requested packages (rpm)..."
 rpm-ostree install --idempotent {{ range .packages.linux.rpm -}}{{ . | quote }} {{ end -}}
 {{ end }}
 
