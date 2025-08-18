@@ -59,33 +59,31 @@
     url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-IosevkaAile-{{ $iosevkaVersion }}.zip"
     path = "IosevkaAile.ttc"
 
-{{ $nerdfontVersion := "3.4.0" -}}
 ["{{ $fontDir }}/IosevkaTermNerdFont-Regular.ttf"]
     type = "archive-file"
     path = "IosevkaTermNerdFont-Regular.ttf"
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ $nerdfontVersion }}/IosevkaTerm.tar.xz"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.tar.xz"
+    refreshPeriod = "168h"
     exact = true
     stripComponents = 0
 
-{{ $unameArch := "" }}
+{{ $altArch := "" }}
 {{ if eq .chezmoi.arch "amd64" }}
-    {{ $unameArch = "x86_64" }}
+    {{ $altArch = "x86_64" }}
 {{ else if eq .chezmoi.arch "arm64" }}
-    {{ $unameArch = "aarch64" }}
+    {{ $altArch = "aarch64" }}
 {{ end -}}
 
 {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
-{{ $starshipVersion := "1.23.0" -}}
 [".local/bin/starship"]
     type = "archive-file"
     path = "starship"
     refreshPeriod = "168h"
-    url = "https://github.com/starship/starship/releases/download/v{{ $starshipVersion }}/starship-{{ $unameArch }}-unknown-linux-musl.tar.gz"
+    url = "https://github.com/starship/starship/releases/latest/download/starship-{{ $altArch }}-unknown-linux-musl.tar.gz"
 
 [".local/share/icons/hicolor/scalable/apps/ptyxis.svg"]
     type = "file"
     url = "https://gitlab.gnome.org/chergert/ptyxis/-/raw/main/data/icons/ptyxis.svg"
-
 {{ end }}
 
 {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian") }}
