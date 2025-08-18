@@ -41,14 +41,14 @@
     type = "file"
     url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme"
 
-{{ $fontDir := "" }}
-{{ if eq .chezmoi.os "darwin" }}
+{{- $fontDir := "" -}}
+{{- if eq .chezmoi.os "darwin" }}
     {{ $fontDir = "Library/Fonts" }}
 {{ else if eq .chezmoi.os "linux" }}
     {{ $fontDir = ".local/share/fonts" }}
-{{ end }}
+{{ end -}}
 
-{{ $iosevkaVersion := "33.2.8" -}}
+{{- $iosevkaVersion := output "github-api-latest-release.sh" "be5invis/Iosevka" | trim -}}
 ["{{ $fontDir }}/Iosevka.ttc"]
     type = "archive-file"
     url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-Iosevka-{{ $iosevkaVersion }}.zip"
@@ -67,14 +67,14 @@
     exact = true
     stripComponents = 0
 
-{{ $altArch := "" }}
-{{ if eq .chezmoi.arch "amd64" }}
+{{- $altArch := "" }}
+{{- if eq .chezmoi.arch "amd64" }}
     {{ $altArch = "x86_64" }}
-{{ else if eq .chezmoi.arch "arm64" }}
+{{- else if eq .chezmoi.arch "arm64" }}
     {{ $altArch = "aarch64" }}
 {{ end -}}
 
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
 [".local/bin/starship"]
     type = "archive-file"
     path = "starship"
@@ -86,12 +86,12 @@
     url = "https://gitlab.gnome.org/chergert/ptyxis/-/raw/main/data/icons/ptyxis.svg"
 {{ end }}
 
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian") }}
-{{ $fripperymoveclockVersion := "48.0" -}}
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian") }}
+{{ $fripperymoveclockVersion := "48.0" }}
 [".local/share/gnome-shell/extensions/Move_Clock@rmy.pobox.com/"] 
     include = [".local/share/gnome-shell/extensions/Move_Clock@rmy.pobox.com/*"] 
     type = "archive"
     url = "https://frippery.org/extensions/gnome-shell-frippery-{{ $fripperymoveclockVersion }}.tgz"
     exact = true
     stripComponents =  5
-{{ end }}
+{{ end -}}
