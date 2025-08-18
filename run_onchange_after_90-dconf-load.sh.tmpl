@@ -2,5 +2,8 @@
 #!/bin/sh
 
 # dconf.ini hash: {{ include "dconf.ini" | sha256sum }}
-dconf load / < {{ joinPath .chezmoi.sourceDir "dconf.ini" | quote }}
+# gnome-text-editor.ini hash: {{ include "gnome-text-editor.ini" | sha256sum }}
+cat {{ joinPath .chezmoi.sourceDir "dconf.ini" | quote }} \
+    {{ joinPath .chezmoi.sourceDir "gnome-text-editor.ini" | quote }} \
+    | dconf load /
 {{- end }}
