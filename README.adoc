@@ -1,13 +1,17 @@
 # 16levels/dotfiles
 
+While Fedora Silverblue is my daily driver, this repository is also compatible with Fedora Workstation and Debian.
+
 To install `chezmoi` and apply this repository's dotfiles, use one of the following:
 
 .curl:
-`sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply 16levels`
+`sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply 16levels`
 
 .wget:
-`sh -c "$(wget -qO- get.chezmoi.io/lb)" -- init --apply 16levels`
+`sh -c "$(wget -qO- get.chezmoi.io)" -- init --apply 16levels`
 
+
+**Desktop Environment:** GNOME
 
 **Shell:** https://fishshell.com[fish] with https://starship.rs[Starship] prompt.
 
@@ -24,13 +28,15 @@ To install `chezmoi` and apply this repository's dotfiles, use one of the follow
 ## Fedora Silverblue
 **Enable Flatpak SDK Extensions:**
 ```console
-sudo flatpak override --env="FLATPAK_ENABLE_SDK_EXT=*" org.gnu.emacs
+flatpak override --user --env="FLATPAK_ENABLE_SDK_EXT=*" io.neovim.nvim
+flatpak override --user --env="FLATPAK_ENABLE_SDK_EXT=*" org.gnu.emacs
 ```
 
-*(https://rpmfusion.org/Configuration)[RPM Fusion] should be enabled in order to install (https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29)[Proprietary NVIDIA Drivers] and hardware decoding support.*
+*https://rpmfusion.org/Configuration[RPM Fusion] should be enabled in order to install https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29[Proprietary NVIDIA Drivers] and hardware decoding support.*
 
 ## macOS
 **Essential Software:**
+
 - https://www.macports.org/install.php[MacPorts]: Package manager similar to the BSD ports collections.
 
 - https://ghostty.org/download[Ghostty]: Terminal emulator that uses platform-native UI and GPU acceleration.
