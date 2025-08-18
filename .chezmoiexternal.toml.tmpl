@@ -48,7 +48,7 @@
     {{ $fontDir = ".local/share/fonts" }}
 {{ end -}}
 
-{{- $iosevkaVersion := output "github-api-latest-release.sh" "be5invis/Iosevka" | trim -}}
+{{- $iosevkaVersion := output (joinPath .chezmoi.sourceDir "get-latest-release.sh") "be5invis/Iosevka" | trim -}}
 ["{{ $fontDir }}/Iosevka.ttc"]
     type = "archive-file"
     url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-Iosevka-{{ $iosevkaVersion }}.zip"
