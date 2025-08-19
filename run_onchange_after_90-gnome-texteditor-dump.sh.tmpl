@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+# dconf.ini hash: {{ include "dconf.ini" | sha256sum }}
+awk '/.org\/gnome\/TextEditor/,/^$/ { print }' \
+    {{ joinPath .chezmoi.sourceDir "dconf.ini" | quote }} \
+    > "$HOME/.var/app/org.gnome.TextEditor/config/glib-2.0/settings/keyfile"
+{{- end }}
