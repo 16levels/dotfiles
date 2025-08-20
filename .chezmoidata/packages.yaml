@@ -124,6 +124,7 @@ packages:
       - 'ripgrep'
       - 'starship'
       - 'syncthing'
+      - 'tailscale'
       - 'tmux'
       - 'virt-manager'
       - 'yaru-theme-gnome-shell'
