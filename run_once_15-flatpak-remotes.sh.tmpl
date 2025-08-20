@@ -1,5 +1,11 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+# check if remote exists before calling flatpak to avoid sudo prompt:
+if flatpak remotes --columns=name | grep "flathub" >/dev/null 2>&1; then
+        echo "Flatpak remote 'flathub' already exists."
+else
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+fi
+
 {{- end }}
