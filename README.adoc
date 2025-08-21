@@ -26,6 +26,26 @@ To install `chezmoi` and apply this repository's dotfiles, use one of the follow
 - https://nerdfonts.com[Nerd Fonts]
 
 ## Fedora Silverblue
+**Groups**
+
+.add_etc_group.sh
+[source, sh]
+----
+#!/bin/sh
+
+if group_line=$(getent group "$1") >/dev/null 2>&1 && ! grep "$1" /etc/group >/dev/null 2>&1; then
+	echo "$group_line" >> /etc/group
+	usermod -aG "$1" "$2"
+else
+	exit 1
+fi
+----
+
+```console
+sudo add_etc_group.sh libvirt $USER
+```
+
+
 **Enable Flatpak SDK Extensions:**
 ```console
 flatpak override --user --env="FLATPAK_ENABLE_SDK_EXT=*" io.neovim.nvim
