@@ -5,10 +5,10 @@ While Fedora Silverblue is my daily driver, this repository is also compatible w
 To install `chezmoi` and apply this repository's dotfiles, use one of the following:
 
 .curl:
-`sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply 16levels`
+`sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply 16levels`
 
 .wget:
-`sh -c "$(wget -qO- get.chezmoi.io)" -- init --apply 16levels`
+`sh -c "$(wget -qO- get.chezmoi.io/lb)" -- init --apply 16levels`
 
 
 **Desktop Environment:** GNOME
@@ -28,6 +28,8 @@ To install `chezmoi` and apply this repository's dotfiles, use one of the follow
 ## Fedora Silverblue
 **Groups**
 
+Silverblue uses NSS for groups, so `sudo usermod -aG <group> $user` will not have the intended effect. To add an entry for a group found in `/usr/lib/group` but not `/etc/group`, the following can be used:
+
 .add_etc_group.sh
 [source, sh]
 ----
@@ -45,13 +47,6 @@ fi
 sudo add_etc_group.sh libvirt $USER
 ```
 
-
-**Enable Flatpak SDK Extensions:**
-```console
-flatpak override --user --env="FLATPAK_ENABLE_SDK_EXT=*" io.neovim.nvim
-flatpak override --user --env="FLATPAK_ENABLE_SDK_EXT=*" org.gnu.emacs
-```
-
 *https://rpmfusion.org/Configuration[RPM Fusion] should be enabled in order to install https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29[Proprietary NVIDIA Drivers] and hardware decoding support.*
 
 ## macOS
@@ -64,5 +59,7 @@ flatpak override --user --env="FLATPAK_ENABLE_SDK_EXT=*" org.gnu.emacs
 - https://github.com/maxgoedjen/secretive[Secretive]: Stores SSH keys in the Secure Enclave.
 
 - https://podman.io[Podman]: A daemonless container engine.
+
+- https://mac.getutm.app[UTM]: Virtual machines for macOS.
 
 - https://lima-vm.io[Lima]: Linux virtual machines with automatic file sharing and port forwarding (similar to WSL2).
