@@ -92,6 +92,7 @@ packages:
       - 'org.freedesktop.Sdk.Extension.rust-stable//24.08'
       - 'org.freedesktop.Sdk.Extension.typescript//24.08'
       - 'org.gimp.GIMP'
+      - 'org.gnome.Podcasts'
       - 'org.gnu.emacs'
       - 'org.racket_lang.Racket'
       - 'org.raspberrypi.rpi-imager'
