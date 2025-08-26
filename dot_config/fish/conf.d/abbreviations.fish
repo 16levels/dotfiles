@@ -32,8 +32,10 @@ abbr -a --set-cursor=! tsen tailscale set --exit-node=us-!
 abbr -a tsens tailscale exit-node suggest
 abbr -a ts tailscale
 
-# pip -> pip3
-abbr -a pip pip3
+# pip -> uv
+abbr -a pipx uv tool
+abbr -a venv uv venv
+abbr -a pip uv pip
 
 # vi -> nvim
 abbr -a vi nvim

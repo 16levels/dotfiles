@@ -7,8 +7,6 @@ if status is-interactive
     # ## ## ## ## ## ## ## ## ## ## ## ## #
     # go
     fish_add_path -ag "$HOME/go/bin"
-    # rust
-    fish_add_path -ag "$HOME/.cargo/bin"
     # gain access to Mason installed LSPs and Linters
     fish_add_path -ag "$HOME/.local/share/nvim/mason/bin"
 
