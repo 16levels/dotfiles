@@ -66,6 +66,7 @@ packages:
       - 'vale'
       - 'wget'
       - 'wol'
+      - 'zellij'
   linux:
     flatpak:
       - 'app/com.github.tchx84.Flatseal'

@@ -74,6 +74,15 @@
     {{ $altArch = "aarch64" }}
 {{ end -}}
 
+
+{{- if eq .chezmoi.os "linux" }}
+[".local/bin/zellij"]
+    type = "archive-file"
+    path = "zellij"
+    refreshPeriod = "168h"
+    url = "https://github.com/zellij-org/zellij/releases/latest/download/zellij-no-web-{{ $altArch }}-unknown-linux-musl.tar.gz"
+{{ end }}
+
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
 [".local/bin/starship"]
     type = "archive-file"
