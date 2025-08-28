@@ -10,10 +10,6 @@ if status is-interactive
     # gain access to Mason installed LSPs and Linters
     fish_add_path -ag "$HOME/.local/share/nvim/mason/bin"
 
-    # Load Abbreviations
-    source "$__fish_config_dir/conf.d/abbreviations.fish"
-
-
     # Operating System Specific Routines
     switch (uname)
         case Darwin

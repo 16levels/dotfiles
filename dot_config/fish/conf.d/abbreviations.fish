@@ -60,12 +60,12 @@ switch (uname)
             # Prefer flatpak'd neovim when in interactive session. Editor can be set to host installed binary for 'sudoedit'.
             abbr -a nvim io.neovim.nvim
             abbr -a vi io.neovim.nvim
-
+	
         end
         #
         # Toolbx Containers
-        # if [ $hostname = 'toolbx' ]
-        #
-        # end
-        #
+        if [ $hostname = 'toolbx' ]
+        
+        end
+
 end
