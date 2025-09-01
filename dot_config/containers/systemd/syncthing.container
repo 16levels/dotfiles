@@ -15,6 +15,7 @@ HealthRetries=3
 HealthTimeout=10s
 
 [Service]
+ExecStartPre=/bin/mkdir -p %h/Sync %h/.local/state/syncthing
 Restart=always
  
 [Install]
