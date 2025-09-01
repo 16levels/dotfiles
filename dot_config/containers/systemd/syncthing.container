@@ -1,0 +1,21 @@
+[Unit]
+Description=Syncthing Container
+
+[Container]
+Image=docker.io/syncthing/syncthing
+AutoUpdate=registry
+ContainerName=syncthing
+Network=host
+UserNS=keep-id
+Volume=%h/Sync:/var/syncthing/Sync:z
+Volume=%h/.local/state/syncthing:/var/syncthing/config:z
+HealthCmd=curl -fkLsS -m 2 127.0.0.1:8384/rest/noauth/health | grep -o --color=never OK || exit 1
+HealthInterval=1m
+HealthRetries=3
+HealthTimeout=10s
+
+[Service]
+Restart=always
+ 
+[Install]
+WantedBy=default.target
