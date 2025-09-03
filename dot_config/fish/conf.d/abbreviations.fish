@@ -50,22 +50,19 @@ switch (uname)
         abbr -a portup sudo -- sh -c "'port selfupdate && port upgrade outdated && port uninstall inactive'"
 
     case Linux
-        # Linux Specific
-        #
-        # OSTree/Immutable Systems
-        if [ -e /run/ostree-booted ]
-
+        if not [ $hostname = 'toolbx' ]
+	# Linux Specific
             abbr -a emacs org.gnu.emacs
-
-            # Prefer flatpak'd neovim when in interactive session. Editor can be set to host installed binary for 'sudoedit'.
             abbr -a nvim io.neovim.nvim
             abbr -a vi io.neovim.nvim
-	
+	else
+        # Toolbx Container Specific
+	#
         end
-        #
-        # Toolbx Containers
-        if [ $hostname = 'toolbx' ]
-        
+	
+        if [ -e /run/ostree-booted ]
+        # OSTree/Immutable System Specific
+	#
         end
 
 end

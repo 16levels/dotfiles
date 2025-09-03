@@ -21,22 +21,23 @@ if status is-interactive
             set -x SSH_AUTH_SOCK "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 
         case Linux
-            # Linux Specific
-            #
-            # OSTree/Immutable Systems
             if [ -e /run/ostree-booted ]
+            # OSTree/Immutable System Specific
+            #
+            end
+
+            if not [ $hostname = 'toolbx' ]
+            # Linux Specific
 
                 # environment variables
                 #
     		fish_add_path -ag "/var/lib/flatpak/exports/bin"
 
+	    else
+            # Toolbx Container Specific
+	    #
             end
-            #
-            # Toolbx Containers
-            # if [ $hostname = 'toolbx' ]
-            #
-            # end
-            #
+
     end
 
     # starship prompt
