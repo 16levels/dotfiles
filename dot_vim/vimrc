@@ -11,11 +11,11 @@ set sm     " When a bracket is inserted, briefly jump to the matching one.
 set ic     " Searches should ignore case.
 set tgc    " Enable true color support.
 set cul    " Emphasize current line.
-syntax on  " Enable syntax highlighting
+silent! syntax on
 
 " Map the key sequence 'jk' to '<ESC>' in Insert mode.
 ino jk <esc>
 
 " Set vim and lightline colorschemes.
-let g:lightline = {'colorscheme': 'catppuccin_frappe'}
+silent! let g:lightline = {'colorscheme': 'catppuccin_frappe'}
 silent! colo catppuccin_frappe
