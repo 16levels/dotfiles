@@ -81,6 +81,7 @@ packages:
       - 'com.blitterstudio.amiberry'
       - 'com.github.flxzt.rnote'
       - 'com.github.johnfactotum.Foliate'
+      - 'com.github.rafostar.Clapper'
       - 'com.logseq.Logseq'
       - 'dev.qwery.AddWater'
       - 'fm.reaper.Reaper'
