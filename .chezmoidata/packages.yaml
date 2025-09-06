@@ -52,7 +52,6 @@ packages:
       - 'py-ansible'
       - 'py313-pip'
       - 'python313'
-      - 'ramalama'
       - 'restic'
       - 'ripgrep'
       - 'rlwrap'
@@ -70,6 +69,20 @@ packages:
       - 'wget'
       - 'wol'
       - 'zellij'
+  python:
+    pip:
+      - 'ansible'
+      - 'ansible-core'
+      - 'asciidoc'
+      - 'ramalama'
+  rust:
+    cargo:
+      - 'cargo-update'
+      - 'codeberg-cli'
+      - 'fd-find'
+      - 'podlet'
+      - 'ripgrep'
+
   linux:
     flatpak:
       - 'app/com.github.tchx84.Flatseal'
@@ -107,6 +120,7 @@ packages:
       - 'org.turbowarp.TurboWarp'
     deb:
       - 'bat'
+      - 'build-essential'
       - 'curl'
       - 'fastfetch'
       - 'fish'
