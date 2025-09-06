@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Installing python packages..."
+{{ range .packages.python.pip -}}uv tool install {{ . | quote }}
+{{ end -}}
