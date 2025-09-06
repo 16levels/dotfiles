@@ -12,10 +12,12 @@ get-latest-release.sh
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
+	{{/* Debian Specific Files */}}
 	{{- if ne .chezmoi.osRelease.id "debian" -}}
 	.chezmoiscripts/linux/debian/**
 	{{ end -}}
 
+	{{/* Fedora Specific Files */}}
 	{{- if ne .chezmoi.osRelease.id "fedora" -}}
 	.chezmoiscripts/linux/fedora/**
 	{{ end -}}
