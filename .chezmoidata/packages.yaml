@@ -82,7 +82,6 @@ packages:
       - 'fd-find'
       - 'podlet'
       - 'ripgrep'
-
   linux:
     flatpak:
       - 'app/com.github.tchx84.Flatseal'
