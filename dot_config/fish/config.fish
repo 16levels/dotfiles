@@ -21,13 +21,15 @@ if status is-interactive
             set -x SSH_AUTH_SOCK "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 
         case Linux
+            # Linux Specific
+
             if [ -e /run/ostree-booted ]
             # OSTree/Immutable System Specific
             #
             end
 
             if not [ $hostname = 'toolbx' ]
-            # Linux Specific
+	    # Host Specific
 
                 # environment variables
                 #
