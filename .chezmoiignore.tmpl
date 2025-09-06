@@ -11,7 +11,18 @@ get-latest-release.sh
 .var/app
 {{- end }}
 
+{{- if eq .chezmoi.os "linux" }}
+	{{- if ne .chezmoi.osRelease.id "debian" -}}
+	.chezmoiscripts/linux/debian/**
+	{{ end -}}
+
+	{{- if ne .chezmoi.osRelease.id "fedora" -}}
+	.chezmoiscripts/linux/fedora/**
+	{{ end -}}
+{{ end }}
+
+
 {{/* macOS Specific Files */}}
 {{- if ne .chezmoi.os "darwin" }}
-.chezmoiscripts/darwin
+.chezmoiscripts/darwin/**
 {{- end }}
