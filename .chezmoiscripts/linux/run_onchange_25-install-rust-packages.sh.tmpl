@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "Installing rust packages..."
+cargo install --locked {{ range .packages.rust.cargo -}}{{ . | quote }} {{ end -}}
