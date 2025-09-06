@@ -2,6 +2,10 @@
 #!/bin/sh
 
 {{ if eq .chezmoi.osRelease.variant "Workstation Edition" }}
+
+echo "Updating packages (rpm)..."
+sudo dnf -y update
+
 echo "Installing requested packages (rpm)..."
 sudo dnf -y install {{ range .packages.linux.rpm -}}{{ . | quote }} {{ end -}}
 
