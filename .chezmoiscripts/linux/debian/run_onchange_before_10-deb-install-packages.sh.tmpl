@@ -1,6 +1,8 @@
 {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian") -}}
 #!/bin/sh
 
+sudo apt-get update
+
 echo "Installing requested packages (deb)..."
 sudo apt-get install -y {{ range .packages.linux.deb -}}{{ . | quote }} {{ end }}
 sudo apt-get clean
