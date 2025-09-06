@@ -1,11 +1,17 @@
 README.adoc
 dconf.ini
 get-latest-release.sh
-run_*.sh*
 
-{{- if eq .chezmoi.os "darwin" }}
+{{/* Linux Specific Files */}}
+{{- if ne .chezmoi.os "linux" }}
+.chezmoiscripts/linux
 .config/autostart
 .config/distrobox
 .local/share
 .var/app
+{{- end }}
+
+{{/* macOS Specific Files */}}
+{{- if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/darwin
 {{- end }}
