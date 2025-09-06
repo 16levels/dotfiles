@@ -4,23 +4,21 @@ get-latest-release.sh
 
 {{/* Linux Specific Files */}}
 {{- if ne .chezmoi.os "linux" }}
-.chezmoiscripts/linux
-.config/autostart
-.config/distrobox
-.local/share
-.var/app
+.chezmoiscripts/linux/**
+.config/autostart/**
+.config/distrobox/**
+.local/share/**
+.var/app/**
 {{- end }}
 
-{{- if eq .chezmoi.os "linux" }}
-	{{/* Debian Specific Files */}}
-	{{- if ne .chezmoi.osRelease.id "debian" -}}
-	.chezmoiscripts/linux/debian/**
-	{{ end -}}
+{{/* Debian Specific Files */}}
+{{- if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "debian") }}
+.chezmoiscripts/linux/debian/**
+{{ end -}}
 
-	{{/* Fedora Specific Files */}}
-	{{- if ne .chezmoi.osRelease.id "fedora" -}}
-	.chezmoiscripts/linux/fedora/**
-	{{ end -}}
+{{/* Fedora Specific Files */}}
+{{- if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "fedora") }}
+.chezmoiscripts/linux/fedora/**
 {{ end }}
 
 
