@@ -18,9 +18,6 @@ abbr -a --set-cursor=! hercules podman run --rm -it \
     -e HERCULES_RC="hercules.rc" \
     ghcr.io/16levels/hercules
 
-# shellcheck container
-abbr -a shellcheck podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable
-
 # hadolint container
 abbr -a hadolint podman run --rm -i hadolint/hadolint
 
@@ -50,8 +47,17 @@ switch (uname)
         abbr -a portup sudo -- sh -c "'port selfupdate && port upgrade outdated && port uninstall inactive'"
 
     case Linux
-        if not [ $hostname = 'toolbx' ]
 	# Linux Specific
+
+	# ollama container
+	abbr -a ollama podman run -d -v "\$HOME/.ollama:/root/.ollama:z" -p 11434:11434 --name ollama ollama/ollama
+	abbr -a ollama-turbo podman run --rm -it -v "\$HOME/.ollama:/root/.ollama:z" -e=OLLAMA_HOST=ollama.com ollama/ollama $argv
+
+	# shellcheck container
+	abbr -a shellcheck podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable
+
+        if not [ $hostname = 'toolbx' ]
+	# Flatpak abbreviations for host
             abbr -a emacs org.gnu.emacs
             abbr -a nvim io.neovim.nvim
             abbr -a vi io.neovim.nvim
