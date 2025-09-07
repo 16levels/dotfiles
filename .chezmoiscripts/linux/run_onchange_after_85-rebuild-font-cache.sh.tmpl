@@ -1,8 +1,7 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
-# Local Fonts:
-{{ output "sh" "-c" "sha256sum ~/.local/share/fonts/* || sed s/^/# /" | trim }}
+# Last Modified (Epoch): {{ output "stat" "--format=%Y" ( joinPath .chezmoi.homeDir ".local/share/fonts" ) | trim }}
 
 echo "Rebuilding font cache..."
 fc-cache -f -v "$HOME/.local/share/fonts"
