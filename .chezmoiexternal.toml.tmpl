@@ -69,15 +69,23 @@
     stripComponents = 0
 
 {{ if eq .chezmoi.os "linux" -}}
+[".local/bin/umoci"]
+    type = "file"
+    executable = true
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "opencontainers/umoci" (printf "umoci.linux.%s" $.chezmoi.arch) | quote }}
+
 [".local/bin/zellij"]
     type = "archive-file"
     path = "zellij"
+    executable = true
     refreshPeriod = "168h"
     url = {{ gitHubLatestReleaseAssetURL "zellij-org/zellij" (printf "zellij-no-web-%s-unknown-linux-musl.tar.gz" $altArch) | quote }}
 
 [".local/bin/fd"]
     type = "archive-file"
     path = "fd"
+    executable = true
     stripComponents = 1
     refreshPeriod = "168h"
     url = {{ gitHubLatestReleaseAssetURL "sharkdp/fd" (printf "fd-v*-%s-unknown-linux-musl.tar.gz" $altArch) | quote }}
@@ -85,6 +93,7 @@
 [".local/bin/rg"]
     type = "archive-file"
     path = "rg"
+    executable = true
     stripComponents = 1
     refreshPeriod = "168h"
     url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "ripgrep-*-%s-unknown-linux-*.tar.gz" $altArch) | quote }}
@@ -94,6 +103,7 @@
 [".local/bin/starship"]
     type = "archive-file"
     path = "starship"
+    executable = true
     refreshPeriod = "168h"
     url = {{ gitHubLatestReleaseAssetURL "starship/starship" (printf "starship-%s-unknown-linux-musl.tar.gz" $altArch) | quote }}
 
