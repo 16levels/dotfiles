@@ -51,7 +51,7 @@ switch (uname)
 
 	# ollama container
 	abbr -a ollama podman run -d -v "\$HOME/.ollama:/root/.ollama:z" -p 11434:11434 --name ollama ollama/ollama
-	abbr -a ollama-turbo podman run --rm -it -v "\$HOME/.ollama:/root/.ollama:z" -e=OLLAMA_HOST=ollama.com ollama/ollama $argv
+	abbr -a ollama-turbo podman run --rm -it -v "\$HOME/.ollama:/root/.ollama:z" -e=OLLAMA_HOST=ollama.com ollama/ollama
 
 	# shellcheck container
 	abbr -a shellcheck podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable
