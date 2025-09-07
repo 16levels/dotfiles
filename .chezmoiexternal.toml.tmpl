@@ -52,42 +52,42 @@
 
 ["{{ $fontDir }}/Iosevka.ttc"]
     type = "archive-file"
-    url = {{ gitHubLatestReleaseAssetURL "be5invis/Iosevka" "SuperTTC-Iosevka-*.zip" }}
+    url = {{ gitHubLatestReleaseAssetURL "be5invis/Iosevka" "SuperTTC-Iosevka-*.zip" | quote }}
     path = "Iosevka.ttc"
 
 ["{{ $fontDir }}/IosevkaAile.ttc"]
     type = "archive-file"
-    url = {{ gitHubLatestReleaseAssetURL "be5invis/Iosevka" "SuperTTC-IosevkaAile-*.zip" }}
+    url = {{ gitHubLatestReleaseAssetURL "be5invis/Iosevka" "SuperTTC-IosevkaAile-*.zip" | quote }}
     path = "IosevkaAile.ttc"
 
 ["{{ $fontDir }}/IosevkaTermNerdFont-Regular.ttf"]
     type = "archive-file"
     path = "IosevkaTermNerdFont-Regular.ttf"
-    url = {{ gitHubLatestReleaseAssetURL "ryanoasis/nerd-fonts" "IosevkaTerm.tar.xz" }}
+    url = {{ gitHubLatestReleaseAssetURL "ryanoasis/nerd-fonts" "IosevkaTerm.tar.xz" | quote }}
     refreshPeriod = "168h"
     exact = true
     stripComponents = 0
 
-{{- if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 [".local/bin/zellij"]
     type = "archive-file"
     path = "zellij"
     refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "zellij-org/zellij" (printf "zellij-no-web-%s-unknown-linux-musl.tar.gz" $altArch) }}
+    url = {{ gitHubLatestReleaseAssetURL "zellij-org/zellij" (printf "zellij-no-web-%s-unknown-linux-musl.tar.gz" $altArch) | quote }}
 
 [".local/bin/fd"]
     type = "archive-file"
     path = "fd"
     stripComponents = 1
     refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "sharkdp/fd" (printf "fd-v*-%s-unknown-linux-musl.tar.gz" $altArch) }}
+    url = {{ gitHubLatestReleaseAssetURL "sharkdp/fd" (printf "fd-v*-%s-unknown-linux-musl.tar.gz" $altArch) | quote }}
 
 [".local/bin/rg"]
     type = "archive-file"
     path = "rg"
     stripComponents = 1
     refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "ripgrep-*-%s-unknown-linux-*.tar.gz" $altArch) }}
+    url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "ripgrep-*-%s-unknown-linux-*.tar.gz" $altArch) | quote }}
 {{ end }}
 
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
@@ -95,7 +95,7 @@
     type = "archive-file"
     path = "starship"
     refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "starship/starship" (printf "starship-%s-unknown-linux-musl.tar.gz" $altArch) }}
+    url = {{ gitHubLatestReleaseAssetURL "starship/starship" (printf "starship-%s-unknown-linux-musl.tar.gz" $altArch) | quote }}
 
 [".local/share/icons/hicolor/scalable/apps/ptyxis.svg"]
     type = "file"
