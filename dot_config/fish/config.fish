@@ -53,6 +53,10 @@ if status is-interactive
     # Use `vi` keybindings
     set -g fish_key_bindings fish_vi_key_bindings
 
+    # Bind the sequence j,k to switch to normal mode in vi mode.
+    bind -M insert -m default j,k cancel repaint-mode
+    set -g fish_sequence_key_delay_ms 200
+
     # starship prompt
     starship init fish | source
 
