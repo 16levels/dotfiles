@@ -50,6 +50,8 @@ if status is-interactive
     set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
     set -gx MANROFFOPT '-c'
 
+    # Use `vi` keybindings
+    set -g fish_key_bindings fish_vi_key_bindings
 
     # starship prompt
     starship init fish | source
