@@ -75,13 +75,6 @@ packages:
       - 'ansible-core'
       - 'asciidoc'
       - 'ramalama'
-  rust:
-    cargo:
-      - 'cargo-update'
-      - 'codeberg-cli'
-      - 'fd-find'
-      - 'podlet'
-      - 'ripgrep'
   linux:
     flatpak:
       - 'app/com.github.tchx84.Flatseal'
