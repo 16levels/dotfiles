@@ -46,6 +46,10 @@ if status is-interactive
     # Editor - host or flatpak neovim
     set -gx EDITOR $(command -s nvim || command -s io.neovim.nvim)
 
+    # Use `bat` as manual pager
+    set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+    set -gx MANROFFOPT '-c'
+
 
     # starship prompt
     starship init fish | source
