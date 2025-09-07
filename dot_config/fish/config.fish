@@ -1,15 +1,5 @@
 if status is-interactive
 
-    # Path
-    fish_add_path -ag "$HOME/.local/bin"
-
-    # language/development package managers
-    # ## ## ## ## ## ## ## ## ## ## ## ## #
-    # go
-    fish_add_path -ag "$HOME/go/bin"
-    # gain access to Mason installed LSPs and Linters
-    fish_add_path -ag "$HOME/.local/share/nvim/mason/bin"
-
     # Operating System Specific Routines
     switch (uname)
         case Darwin
@@ -41,6 +31,21 @@ if status is-interactive
             end
 
     end
+
+    # Path
+    fish_add_path -ag "$HOME/.local/bin"
+
+    # language/development package managers
+    # ## ## ## ## ## ## ## ## ## ## ## ## #
+    # go
+    fish_add_path -ag "$HOME/go/bin"
+    # gain access to Mason installed LSPs and Linters
+    fish_add_path -ag "$HOME/.local/share/nvim/mason/bin"
+
+
+    # Editor - host or flatpak neovim
+    set -gx EDITOR $(command -s nvim || command -s io.neovim.nvim)
+
 
     # starship prompt
     starship init fish | source
