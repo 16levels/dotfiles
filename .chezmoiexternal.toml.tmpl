@@ -1,9 +1,4 @@
-{{- $altArch := "" }}
-{{- if eq .chezmoi.arch "amd64" }}
-    {{ $altArch = "x86_64" }}
-{{- else if eq .chezmoi.arch "arm64" }}
-    {{ $altArch = "aarch64" }}
-{{ end -}}
+{{- $unameMachine := output "uname" "-m" | trim }}
 
 {{- $fontDir := "" -}}
 {{- if eq .chezmoi.os "darwin" }}
@@ -80,7 +75,7 @@
     path = "zellij"
     executable = true
     refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "zellij-org/zellij" (printf "zellij-no-web-%s-unknown-linux-musl.tar.gz" $altArch) | quote }}
+    url = {{ gitHubLatestReleaseAssetURL "zellij-org/zellij" (printf "zellij-no-web-%s-unknown-linux-musl.tar.gz" $unameMachine) | quote }}
 
 [".local/bin/fd"]
     type = "archive-file"
@@ -88,7 +83,7 @@
     executable = true
     stripComponents = 1
     refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "sharkdp/fd" (printf "fd-v*-%s-unknown-linux-musl.tar.gz" $altArch) | quote }}
+    url = {{ gitHubLatestReleaseAssetURL "sharkdp/fd" (printf "fd-v*-%s-unknown-linux-musl.tar.gz" $unameMachine) | quote }}
 
 [".local/bin/rg"]
     type = "archive-file"
@@ -96,7 +91,7 @@
     executable = true
     stripComponents = 1
     refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "ripgrep-*-%s-unknown-linux-*.tar.gz" $altArch) | quote }}
+    url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "ripgrep-*-%s-unknown-linux-*.tar.gz" $unameMachine) | quote }}
 {{ end }}
 
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
@@ -105,7 +100,7 @@
     path = "starship"
     executable = true
     refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "starship/starship" (printf "starship-%s-unknown-linux-musl.tar.gz" $altArch) | quote }}
+    url = {{ gitHubLatestReleaseAssetURL "starship/starship" (printf "starship-%s-unknown-linux-musl.tar.gz" $unameMachine) | quote }}
 
 [".local/share/icons/hicolor/scalable/apps/ptyxis.svg"]
     type = "file"
