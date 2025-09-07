@@ -84,6 +84,20 @@
     stripComponents = 1
     refreshPeriod = "168h"
     url = "https://github.com/sharkdp/fd/releases/latest/download/fd-v{{ $fdVersion }}-{{ $altArch }}-unknown-linux-musl.tar.gz"
+
+{{- $libcVersion := "" }}
+{{- $rgVersion := output (joinPath .chezmoi.sourceDir "get-latest-release.sh") "BurntSushi/ripgrep" | trim }}
+{{ if eq $altArch "aarch64" }}
+    {{- $libcVersion = "gnu" }}
+{{ else if eq $altArch "x86_64" }}
+    {{- $libcVersion = "musl" }}
+{{ end }}
+[".local/bin/rg"]
+    type = "archive-file"
+    path = "rg"
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = "https://github.com/BurntSushi/ripgrep/releases/latest/download/ripgrep-{{ $rgVersion }}-{{ $altArch }}-unknown-linux-{{ $libcVersion }}.tar.gz"
 {{ end }}
 
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
