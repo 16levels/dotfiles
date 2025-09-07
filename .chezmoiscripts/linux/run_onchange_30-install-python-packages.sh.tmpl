@@ -1,7 +1,5 @@
 #!/bin/sh
 
-. "$HOME/.profile"
-
 echo "Installing python packages..."
-{{ range .packages.python.pip -}}uv tool install {{ . | quote }}
+{{ range .packages.python.pip -}}"$HOME/.local/bin/uv" tool install {{ . | quote }}
 {{ end -}}
