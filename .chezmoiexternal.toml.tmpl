@@ -76,6 +76,14 @@
     path = "zellij"
     refreshPeriod = "168h"
     url = "https://github.com/zellij-org/zellij/releases/latest/download/zellij-no-web-{{ $altArch }}-unknown-linux-musl.tar.gz"
+
+{{- $fdVersion := output (joinPath .chezmoi.sourceDir "get-latest-release.sh") "sharkdp/fd" | trim }}
+[".local/bin/fd"]
+    type = "archive-file"
+    path = "fd"
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = "https://github.com/sharkdp/fd/releases/latest/download/fd-v{{ $fdVersion }}-{{ $altArch }}-unknown-linux-musl.tar.gz"
 {{ end }}
 
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
