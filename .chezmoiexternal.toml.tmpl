@@ -1,3 +1,17 @@
+{{- $altArch := "" }}
+{{- if eq .chezmoi.arch "amd64" }}
+    {{ $altArch = "x86_64" }}
+{{- else if eq .chezmoi.arch "arm64" }}
+    {{ $altArch = "aarch64" }}
+{{ end -}}
+
+{{- $fontDir := "" -}}
+{{- if eq .chezmoi.os "darwin" }}
+    {{ $fontDir = "Library/Fonts" }}
+{{ else if eq .chezmoi.os "linux" }}
+    {{ $fontDir = ".local/share/fonts" }}
+{{ end -}}
+
 [".emacs.d"]
     type = "git-repo"
     url = "https://github.com/16levels/minimal-emacs.d"
@@ -36,68 +50,44 @@
     type = "file"
     url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme"
 
-{{- $fontDir := "" -}}
-{{- if eq .chezmoi.os "darwin" }}
-    {{ $fontDir = "Library/Fonts" }}
-{{ else if eq .chezmoi.os "linux" }}
-    {{ $fontDir = ".local/share/fonts" }}
-{{ end -}}
-
-{{- $iosevkaVersion := output (joinPath .chezmoi.sourceDir "get-latest-release.sh") "be5invis/Iosevka" | trim -}}
 ["{{ $fontDir }}/Iosevka.ttc"]
     type = "archive-file"
-    url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-Iosevka-{{ $iosevkaVersion }}.zip"
+    url = {{ gitHubLatestReleaseAssetURL "be5invis/Iosevka" "SuperTTC-Iosevka-*.zip" }}
     path = "Iosevka.ttc"
 
 ["{{ $fontDir }}/IosevkaAile.ttc"]
     type = "archive-file"
-    url = "https://github.com/be5invis/Iosevka/releases/download/v{{ $iosevkaVersion }}/SuperTTC-IosevkaAile-{{ $iosevkaVersion }}.zip"
+    url = {{ gitHubLatestReleaseAssetURL "be5invis/Iosevka" "SuperTTC-IosevkaAile-*.zip" }}
     path = "IosevkaAile.ttc"
 
 ["{{ $fontDir }}/IosevkaTermNerdFont-Regular.ttf"]
     type = "archive-file"
     path = "IosevkaTermNerdFont-Regular.ttf"
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.tar.xz"
+    url = {{ gitHubLatestReleaseAssetURL "ryanoasis/nerd-fonts" "IosevkaTerm.tar.xz" }}
     refreshPeriod = "168h"
     exact = true
     stripComponents = 0
-
-{{- $altArch := "" }}
-{{- if eq .chezmoi.arch "amd64" }}
-    {{ $altArch = "x86_64" }}
-{{- else if eq .chezmoi.arch "arm64" }}
-    {{ $altArch = "aarch64" }}
-{{ end -}}
-
 
 {{- if eq .chezmoi.os "linux" }}
 [".local/bin/zellij"]
     type = "archive-file"
     path = "zellij"
     refreshPeriod = "168h"
-    url = "https://github.com/zellij-org/zellij/releases/latest/download/zellij-no-web-{{ $altArch }}-unknown-linux-musl.tar.gz"
+    url = {{ gitHubLatestReleaseAssetURL "zellij-org/zellij" (printf "zellij-no-web-%s-unknown-linux-musl.tar.gz" $altArch) }}
 
-{{- $fdVersion := output (joinPath .chezmoi.sourceDir "get-latest-release.sh") "sharkdp/fd" | trim }}
 [".local/bin/fd"]
     type = "archive-file"
     path = "fd"
     stripComponents = 1
     refreshPeriod = "168h"
-    url = "https://github.com/sharkdp/fd/releases/latest/download/fd-v{{ $fdVersion }}-{{ $altArch }}-unknown-linux-musl.tar.gz"
+    url = {{ gitHubLatestReleaseAssetURL "sharkdp/fd" (printf "fd-v*-%s-unknown-linux-musl.tar.gz" $altArch) }}
 
-{{- $libcVersion := "" }}
-{{- $rgVersion := output (joinPath .chezmoi.sourceDir "get-latest-release.sh") "BurntSushi/ripgrep" | trim }}
-{{ if eq $altArch "aarch64" }}
-    {{- $libcVersion = "gnu" }}
-{{ else if eq $altArch "x86_64" }}
-    {{- $libcVersion = "musl" }}
-{{ end }}
 [".local/bin/rg"]
     type = "archive-file"
     path = "rg"
     stripComponents = 1
     refreshPeriod = "168h"
-    url = "https://github.com/BurntSushi/ripgrep/releases/latest/download/ripgrep-{{ $rgVersion }}-{{ $altArch }}-unknown-linux-{{ $libcVersion }}.tar.gz"
+    url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "ripgrep-*-%s-unknown-linux-*.tar.gz" $altArch) }}
 {{ end }}
 
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
@@ -105,7 +95,7 @@
     type = "archive-file"
     path = "starship"
     refreshPeriod = "168h"
-    url = "https://github.com/starship/starship/releases/latest/download/starship-{{ $altArch }}-unknown-linux-musl.tar.gz"
+    url = {{ gitHubLatestReleaseAssetURL "starship/starship" (printf "starship-%s-unknown-linux-musl.tar.gz" $altArch) }}
 
 [".local/share/icons/hicolor/scalable/apps/ptyxis.svg"]
     type = "file"
