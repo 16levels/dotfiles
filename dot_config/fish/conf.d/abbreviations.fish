@@ -47,28 +47,28 @@ switch (uname)
         abbr -a portup sudo -- sh -c "'port selfupdate && port upgrade outdated && port uninstall inactive'"
 
     case Linux
-	# Linux Specific
+        # Linux Specific
 
-	# ollama container
-	abbr -a ollama podman run -d -v "\$HOME/.ollama:/root/.ollama:z" -p 11434:11434 --name ollama ollama/ollama
-	abbr -a ollama-turbo podman run --rm -it -v "\$HOME/.ollama:/root/.ollama:z" -e=OLLAMA_HOST=ollama.com ollama/ollama
+        # ollama container
+        abbr -a ollama podman run -d -v "\$HOME/.ollama:/root/.ollama:z" -p 11434:11434 --name ollama ollama/ollama
+        abbr -a ollama-turbo podman run --rm -it -v "\$HOME/.ollama:/root/.ollama:z" -e=OLLAMA_HOST=ollama.com ollama/ollama
 
-	# shellcheck container
-	abbr -a shellcheck podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable
+        # shellcheck container
+        abbr -a shellcheck podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable
 
-        if not [ $hostname = 'toolbx' ]
-	# Flatpak abbreviations for host
+        if not [ $hostname = toolbx ]
+            # Flatpak abbreviations for host
             abbr -a emacs org.gnu.emacs
             abbr -a nvim io.neovim.nvim
             abbr -a vi io.neovim.nvim
-	else
-        # Toolbx Container Specific
-	#
+        else
+            # Toolbx Container Specific
+            #
         end
-	
+
         if [ -e /run/ostree-booted ]
-        # OSTree/Immutable System Specific
-	#
+            # OSTree/Immutable System Specific
+            #
         end
 
 end
