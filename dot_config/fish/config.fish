@@ -10,6 +10,9 @@ if status is-interactive
             # secure enclave ssh integration
             set -x SSH_AUTH_SOCK "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 
+	    # direnv
+	    direnv hook fish | source
+
         case Linux
             # Linux Specific
 
@@ -27,7 +30,10 @@ if status is-interactive
 
 	    else
             # Toolbx Container Specific
-	    #
+
+	    # direnv
+	    direnv hook fish | source
+
             end
 
     end
@@ -59,5 +65,8 @@ if status is-interactive
 
     # starship prompt
     starship init fish | source
+
+    # atuin shell history
+    atuin init fish | source
 
 end
