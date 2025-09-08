@@ -53,7 +53,7 @@ if status is-interactive
     set -gx EDITOR $(command -s nvim || command -s io.neovim.nvim)
 
     # Use `bat` as manual pager
-    set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+    set -gx MANPAGER "sh -c 'col -bx | $(command -s bat || command -s batcat) -l man -p'"
     set -gx MANROFFOPT '-c'
 
     # Use `vi` keybindings
