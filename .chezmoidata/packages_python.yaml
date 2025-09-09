@@ -1,0 +1,8 @@
+---  # requested packages
+packages:
+  python:
+    pip:
+      - 'ansible'
+      - 'ansible-core'
+      - 'asciidoc'
+      - 'ramalama'
