@@ -1,0 +1,15 @@
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
+[".local/share/icons/hicolor/scalable/apps/ptyxis.svg"]
+    type = "file"
+    url = "https://gitlab.gnome.org/chergert/ptyxis/-/raw/main/data/icons/ptyxis.svg"
+{{ end }}
+
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian") }}
+{{ $fripperymoveclockVersion := "48.0" }}
+[".local/share/gnome-shell/extensions/Move_Clock@rmy.pobox.com/"] 
+    include = [".local/share/gnome-shell/extensions/Move_Clock@rmy.pobox.com/*"] 
+    type = "archive"
+    url = "https://frippery.org/extensions/gnome-shell-frippery-{{ $fripperymoveclockVersion }}.tgz"
+    exact = true
+    stripComponents =  5
+{{ end -}}

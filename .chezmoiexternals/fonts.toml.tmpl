@@ -1,0 +1,24 @@
+{{- $fontDir := "" -}}
+{{- if eq .chezmoi.os "darwin" }}
+    {{ $fontDir = "Library/Fonts" }}
+{{ else if eq .chezmoi.os "linux" }}
+    {{ $fontDir = ".local/share/fonts" }}
+{{ end -}}
+
+["{{ $fontDir }}/Iosevka.ttc"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "be5invis/Iosevka" "SuperTTC-Iosevka-*.zip" | quote }}
+    path = "Iosevka.ttc"
+
+["{{ $fontDir }}/IosevkaAile.ttc"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "be5invis/Iosevka" "SuperTTC-IosevkaAile-*.zip" | quote }}
+    path = "IosevkaAile.ttc"
+
+["{{ $fontDir }}/IosevkaTermNerdFont-Regular.ttf"]
+    type = "archive-file"
+    path = "IosevkaTermNerdFont-Regular.ttf"
+    url = {{ gitHubLatestReleaseAssetURL "ryanoasis/nerd-fonts" "IosevkaTerm.tar.xz" | quote }}
+    refreshPeriod = "168h"
+    exact = true
+    stripComponents = 0

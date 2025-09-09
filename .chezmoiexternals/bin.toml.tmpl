@@ -1,0 +1,42 @@
+{{- $unameMachine := output "uname" "-m" | trim }}
+
+{{ if eq .chezmoi.os "linux" -}}
+[".local/bin/fd"]
+    type = "archive-file"
+    path = "fd"
+    executable = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "sharkdp/fd" (printf "fd-v*-%s-unknown-linux-musl.tar.gz" $unameMachine) | quote }}
+
+[".local/bin/rg"]
+    type = "archive-file"
+    path = "rg"
+    executable = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "ripgrep-*-%s-unknown-linux-*.tar.gz" $unameMachine) | quote }}
+
+[".local/bin/umoci"]
+    type = "file"
+    executable = true
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "opencontainers/umoci" (printf "umoci.linux.%s" $.chezmoi.arch) | quote }}
+
+[".local/bin/zellij"]
+    type = "archive-file"
+    path = "zellij"
+    executable = true
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "zellij-org/zellij" (printf "zellij-no-web-%s-unknown-linux-musl.tar.gz" $unameMachine) | quote }}
+
+{{ end }}
+
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
+[".local/bin/starship"]
+    type = "archive-file"
+    path = "starship"
+    executable = true
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "starship/starship" (printf "starship-%s-unknown-linux-musl.tar.gz" $unameMachine) | quote }}
+{{ end }}

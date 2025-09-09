@@ -1,0 +1,19 @@
+[".vim/pack/completion/start/auto-pairs"]
+    type = "git-repo"
+    url = "https://github.com/jiangmiao/auto-pairs"
+    refreshPeriod = "168h"
+
+[".vim/pack/colorscheme/start/catppuccin"]
+    type = "git-repo"
+    url = "https://github.com/catppuccin/vim"
+    refreshPeriod = "168h"
+
+[".vim/pack/interface/start/lightline"]
+    type = "git-repo"
+    url = "https://github.com/itchyny/lightline.vim"
+    refreshPeriod = "168h"
+
+[".vim/pack/utility/start/vim-sleuth"]
+    type = "git-repo"
+    url = "https://github.com/tpope/vim-sleuth"
+    refreshPeriod = "168h"

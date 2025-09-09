@@ -1,0 +1,9 @@
+[".emacs.d"]
+    type = "git-repo"
+    url = "https://github.com/16levels/minimal-emacs.d"
+    refreshPeriod = "168h"
+
+[".config/nvim"]
+    type = "git-repo"
+    url = "https://github.com/16levels/kickstart-modular.nvim"
+    refreshPeriod = "168h"
