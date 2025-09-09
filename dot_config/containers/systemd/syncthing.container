@@ -6,6 +6,7 @@ Image=docker.io/syncthing/syncthing
 AutoUpdate=registry
 ContainerName=syncthing
 Network=host
+Environment=STGUIADDRESS=
 UserNS=keep-id
 Volume=%h/Sync:/var/syncthing/Sync:z
 Volume=%h/.local/state/syncthing:/var/syncthing/config:z
