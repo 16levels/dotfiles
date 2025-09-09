@@ -12,12 +12,12 @@ dconf.ini
 
 {{/* Debian Specific Files */}}
 {{- if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "debian") }}
-.chezmoiscripts/linux/debian/**
+**/debian/**
 {{ end -}}
 
 {{/* Fedora Specific Files */}}
 {{- if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "fedora") }}
-.chezmoiscripts/linux/fedora/**
+**/fedora/**
 {{ end }}
 
 
