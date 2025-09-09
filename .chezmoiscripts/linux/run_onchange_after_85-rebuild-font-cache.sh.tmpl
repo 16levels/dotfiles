@@ -1,7 +1,7 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
-# Last Modified (Epoch): {{ output "stat" "--format=%Y" ( joinPath .chezmoi.homeDir ".local/share/fonts" ) | trim }}
+# Last Modified: {{ (stat (joinPath .chezmoi.homeDir ".local/share/fonts")).modTime }}
 
 echo "Rebuilding font cache..."
 fc-cache -f -v "$HOME/.local/share/fonts"

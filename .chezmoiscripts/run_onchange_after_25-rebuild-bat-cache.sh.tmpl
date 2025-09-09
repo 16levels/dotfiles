@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Last Modified: {{ (stat (joinPath .chezmoi.homeDir ".config/bat/themes")).modTime }}
+
 echo "Rebuilding 'bat' cache..."
 if command -v bat > /dev/null 2>&1; then
 	bat cache --build
