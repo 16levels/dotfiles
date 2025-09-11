@@ -33,5 +33,4 @@ packages:
       - 'org.gnome.Podcasts'
       - 'org.gnu.emacs'
       - 'org.racket_lang.Racket'
-      - 'org.raspberrypi.rpi-imager'
       - 'org.turbowarp.TurboWarp'
