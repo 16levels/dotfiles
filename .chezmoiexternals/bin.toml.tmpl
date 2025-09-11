@@ -1,4 +1,9 @@
-{{- $unameMachine := output "uname" "-m" | trim }}
+{{- $unameMachine := output "uname" "-m" | trim -}}
+[".local/bin/devpod"]
+    type = "file"
+    executable = true
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "loft-sh/devpod" (printf "devpod-%s-%s" $.chezmoi.os $.chezmoi.arch) | quote }}
 
 {{ if eq .chezmoi.os "linux" -}}
 [".local/bin/fd"]
@@ -29,7 +34,6 @@
     executable = true
     refreshPeriod = "168h"
     url = {{ gitHubLatestReleaseAssetURL "zellij-org/zellij" (printf "zellij-no-web-%s-unknown-linux-musl.tar.gz" $unameMachine) | quote }}
-
 {{ end }}
 
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
@@ -39,4 +43,4 @@
     executable = true
     refreshPeriod = "168h"
     url = {{ gitHubLatestReleaseAssetURL "starship/starship" (printf "starship-%s-unknown-linux-musl.tar.gz" $unameMachine) | quote }}
-{{ end }}
+{{- end }}
