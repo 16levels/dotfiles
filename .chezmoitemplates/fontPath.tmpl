@@ -1,0 +1,9 @@
+{{- $fontDir := "" -}}
+{{- if eq .chezmoi.os "darwin" }}
+    {{- $fontDir = joinPath .chezmoi.homeDir "Library/Fonts" }}
+{{- else if eq .chezmoi.os "linux" }}
+    {{- $fontDir = joinPath .chezmoi.homeDir ".local/share/fonts" }}
+{{- end -}}
+
+fontDir={{ $fontDir | quote }}
+
