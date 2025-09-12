@@ -1,6 +1,6 @@
 #!/bin/sh
 
-{{ template "fontPath.tmpl" . -}}
+{{ template "ensureFontPath.sh.tmpl" . -}}
 
 # Iosevka
 curl -fsSL {{ gitHubLatestReleaseAssetURL "be5invis/Iosevka" "SuperTTC-Iosevka-*.zip" | quote }} | funzip > "$fontDir/Iosevka.ttc"

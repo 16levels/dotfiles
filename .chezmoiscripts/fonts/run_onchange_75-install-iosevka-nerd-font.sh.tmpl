@@ -1,6 +1,6 @@
 #!/bin/sh
 
-{{ template "fontPath.tmpl" . -}}
+{{ template "ensureFontPath.sh.tmpl" . -}}
 
 # Iosevka NerdFont: Regular
 curl -fsSL {{ gitHubLatestReleaseAssetURL "ryanoasis/nerd-fonts" "IosevkaTerm.tar.xz" | quote }} | tar -C "$fontDir" -J -x "IosevkaTermNerdFont-Regular.ttf"
