@@ -5,7 +5,9 @@ dconf.ini
 {{- if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
 .config/autostart/**
+.config/containers/**
 .config/distrobox/**
+.config/gtk-3.0/**
 .local/share/**
 .var/app/**
 {{- end }}
@@ -19,7 +21,6 @@ dconf.ini
 {{- if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "fedora") }}
 **/fedora/**
 {{ end }}
-
 
 {{/* macOS Specific Files */}}
 {{- if ne .chezmoi.os "darwin" }}
