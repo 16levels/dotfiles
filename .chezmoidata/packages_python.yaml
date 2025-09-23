@@ -6,3 +6,5 @@ packages:
       - 'ansible-core'
       - 'asciidoc'
       - 'ramalama'
+      - 'scapy'
+      - 'sqlmap'
