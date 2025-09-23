@@ -1,0 +1,27 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent": {
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "ollama",
+      "model": "qwen3-coder:480b-cloud"
+    }
+  },
+  "buffer_font_family": "Iosevka",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "terminal": { "font_family": "Iosevka Term" },
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Frappé"
+  },
+  "vim_mode": true
+}

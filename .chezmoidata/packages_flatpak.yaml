@@ -14,6 +14,7 @@ packages:
       - 'com.github.rafostar.Clapper'
       - 'com.logseq.Logseq'
       - 'dev.qwery.AddWater'
+      - 'dev.zed.Zed'
       - 'fm.reaper.Reaper'
       - 'io.github.cmus.cmus'
       - 'io.github.dosbox-staging'
