@@ -30,21 +30,8 @@ To install `chezmoi` and apply this repository's dotfiles, use one of the follow
 
 Silverblue uses NSS for groups, so `sudo usermod -aG <group> $user` will not have the intended effect. To add an entry for a group found in `/usr/lib/group` but not `/etc/group`, the following can be used:
 
-.add_etc_group.sh
-[source, sh]
-----
-#!/bin/sh
-
-if group_line=$(getent group "$1") >/dev/null 2>&1 && ! grep "$1" /etc/group >/dev/null 2>&1; then
-	echo "$group_line" >> /etc/group
-	usermod -aG "$1" "$2"
-else
-	exit 1
-fi
-----
-
 ```console
-sudo add_etc_group.sh libvirt $USER
+sudo add_group_entry.sh libvirt
 ```
 
 *https://rpmfusion.org/Configuration[RPM Fusion] should be enabled in order to install https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29[Proprietary NVIDIA Drivers] and hardware decoding support.*
