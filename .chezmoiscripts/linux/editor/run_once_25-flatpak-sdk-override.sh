@@ -14,5 +14,7 @@ for flatpak in $editors; do
 	if echo "$installed_apps" | grep -q "$flatpak"; then
 		echo "Enabling available SDKs for flatpak '$flatpak'..."
 		flatpak override --user --env="FLATPAK_ENABLE_SDK_EXT=*" "$flatpak"
+		echo "Appending \$PATH for flatpak '$flatpak'..."
+		flatpak override --user --env=PATH="/app/bin:/usr/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/.opam/default/bin" "$flatpak"
 	fi
 done
