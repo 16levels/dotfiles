@@ -10,3 +10,8 @@
     url = {{ gitHubReleaseAssetURL "IBM/plex" "@ibm/plex-mono@1.0.0" "ibm-plex-mono.zip" | quote }}
     stripComponents = 4
     include = ["**/ttf/**"]
+
+["{{ $fontDir }}/NotoColorEmoji.ttf"]
+    type = "file"
+    url = "https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf"
+    refreshPeriod = "672h"
