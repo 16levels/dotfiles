@@ -4,6 +4,7 @@ editors="\
 	com.helix_editor.Helix \
 	com.visualstudio.code \
 	com.vscodium.codium \
+	dev.zed.Zed \
 	io.neovim.nvim \
 	org.gnu.emacs \
 	"
