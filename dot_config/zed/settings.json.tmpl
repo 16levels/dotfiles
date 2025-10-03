@@ -17,7 +17,17 @@
   "buffer_font_family": "Iosevka",
   "ui_font_size": 16,
   "buffer_font_size": 15,
-  "terminal": { "font_family": "Iosevka Term" },
+  "terminal": {
+{{- if eq .chezmoi.os "linux" }}
+    "shell": {
+      "with_arguments": {
+        "program": "/app/bin/host-spawn",
+        "args": ["sh", "-c", "exec $(getent passwd $USER | cut -d: -f7)"]
+      }
+    },
+{{- end }}
+    "font_family": "Iosevka Term"
+  },
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
