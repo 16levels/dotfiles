@@ -11,32 +11,24 @@ switch (uname)
 
         # Integrate toolbox commands outside of container
         if not [ $hostname = toolbx ]
+            set toolbx_cmds 7z 7zz go ko gdu npm hugo just opam guile cosign ffmpeg lazygit
 
-            alias 7z="toolbox run 7z"
-            alias 7zz="toolbox run 7zz"
-            alias go="toolbox run go"
-            alias ko="toolbox run ko"
-            alias gdu="toolbox run gdu"
-            alias npm="toolbox run npm"
-            alias hugo="toolbox run hugo"
-            alias just="toolbox run just"
-            alias opam="toolbox run opam"
-            alias guile="toolbox run guile"
-            alias cosign="toolbox run cosign"
-            alias ffmpeg="toolbox run ffmpeg"
-            alias lazygit="toolbox run lazygit"
-            alias utop="toolbox run opam exec utop"
-
+            for cmd in $toolbx_cmds
+                alias "$cmd=toolbox run $cmd"
+            end
         end
 
         # OSTree/Immutable Systems
         if [ -e /run/ostree-booted ]
 
         end
-        #
-        # Toolbx Containers
-        if [ $hostname = toolbx ]
 
-            alias tailscale="host-spawn tailscale"
+        # Access host commands within Toolbx Containers
+        if [ $hostname = toolbx ]
+            set host_cmds tailscale
+
+            for cmd in $host_cmds
+                alias "$cmd=host-spawn $cmd"
+            end
         end
 end
