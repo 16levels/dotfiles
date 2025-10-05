@@ -6,7 +6,6 @@ Image=docker.io/ollama/ollama
 AutoUpdate=registry
 ContainerName=ollama
 Network=host
-# UserNS=keep-id
 Volume=%h/.ollama:/root/.ollama:Z
 PublishPort=127.0.0.1:11434:11434
 
