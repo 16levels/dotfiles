@@ -8,6 +8,7 @@ switch (uname)
 
     case Linux
         # Linux Specific
+        alias ollama="podman exec -it ollama ollama"
 
         # Integrate toolbox commands outside of container
         if not [ $hostname = toolbx ]
