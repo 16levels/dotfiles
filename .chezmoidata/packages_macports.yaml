@@ -40,6 +40,7 @@ packages:
       - 'lima'
       - 'lua-fennel'
       - 'lua-luarocks'
+      - 'mas'
       - 'neovim'
       - 'nmap'
       - 'nodejs22'
