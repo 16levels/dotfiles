@@ -1,6 +1,9 @@
 # Abbreviations
 #
 
+# gain access to Mason installed LSPs and Linters
+fish_add_path -ag "$HOME/.local/share/nvim/mason/bin"
+
 # asciidoctor container
 abbr -a asciidoctor-revealjs podman run --rm -it -v="\$PWD:/documents/:z" docker.io/asciidoctor/docker-asciidoctor asciidoctor-revealjs
 abbr -a asciidoctor-epub3 podman run --rm -it -v="\$PWD:z" docker.io/asciidoctor/docker-asciidoctor asciidoctor-epub3
@@ -19,7 +22,7 @@ abbr -a --set-cursor=! hercules podman run --rm -it \
     ghcr.io/16levels/hercules
 
 # hadolint container
-abbr -a hadolint podman run --rm -i hadolint/hadolint
+command -q hadolint or abbr -a hadolint "podman run --rm -i hadolint/hadolint"
 
 # antora container
 abbr -a antora podman run --rm -i antora/antora
@@ -35,7 +38,7 @@ abbr -a venv uv venv
 abbr -a pip uv pip
 
 # vi -> nvim
-abbr -a vi nvim
+command -q nvim and abbr -a vi nvim
 
 # cat -> bat
 abbr -a cat bat
@@ -44,19 +47,19 @@ abbr -a cat bat
 switch (uname)
     case Darwin
         # macOS Specific
-        abbr -a portup sudo -- sh -c "'port selfupdate && port upgrade outdated && port uninstall inactive'"
+	abbr -a portup sudo -- sh -c "'port selfupdate && port upgrade outdated && port uninstall inactive'"
 
     case Linux
         # Linux Specific
 
         # shellcheck container
-        abbr -a shellcheck podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable
+	command -q shellcheck or abbr -a shellcheck "podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable"
 
         if not [ $hostname = toolbx ]
             # Flatpak abbreviations for host
+            command -q nvim or (abbr -a nvim io.neovim.nvim && abbr -a vi io.neovim.nvim)
             abbr -a emacs org.gnu.emacs
-            abbr -a nvim io.neovim.nvim
-            abbr -a vi io.neovim.nvim
+            abbr -a zed dev.zed.Zed
         else
             # Toolbx Container Specific
             #

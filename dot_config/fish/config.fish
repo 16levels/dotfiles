@@ -40,13 +40,7 @@ if status is-interactive
 
     # Path
     fish_add_path -ag "$HOME/.local/bin"
-
-    # language/development package managers
-    # ## ## ## ## ## ## ## ## ## ## ## ## #
-    # go
-    fish_add_path -ag "$HOME/go/bin"
-    # gain access to Mason installed LSPs and Linters
-    fish_add_path -ag "$HOME/.local/share/nvim/mason/bin"
+    fish_add_path -ag "$HOME/go/bin" # go
 
     # Editor - host or flatpak neovim
     set -gx EDITOR $(command -s nvim || command -s io.neovim.nvim)
