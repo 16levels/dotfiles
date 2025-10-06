@@ -2,31 +2,25 @@ if status is-interactive
 
     # Operating System Specific Routines
     switch (uname)
+        # macOS Specific
         case Darwin
-            # macOS Specific
-            #
-            # environment variables
-            #
+
             # secure enclave ssh integration
             set -x SSH_AUTH_SOCK "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 
             # direnv
             direnv hook fish | source
 
-        case Linux
             # Linux Specific
+        case Linux
 
             if [ -e /run/ostree-booted ]
                 # OSTree/Immutable System Specific
-                #
+
             end
 
             if not [ $hostname = toolbx ]
                 # Host Specific
-
-                # environment variables
-                #
-                fish_add_path -ag /var/lib/flatpak/exports/bin
 
             else
                 # Toolbx Container Specific
