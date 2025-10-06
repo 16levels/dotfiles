@@ -3,6 +3,7 @@
 
 # gain access to Mason installed LSPs and Linters
 fish_add_path -ag "$HOME/.local/share/nvim/mason/bin"
+fish_add_path -ag /var/lib/flatpak/exports/bin
 
 # asciidoctor container
 abbr -a asciidoctor-revealjs podman run --rm -it -v="\$PWD:/documents/:z" docker.io/asciidoctor/docker-asciidoctor asciidoctor-revealjs
@@ -38,7 +39,7 @@ abbr -a venv uv venv
 abbr -a pip uv pip
 
 # vi -> nvim
-command -q nvim and abbr -a vi nvim
+command -q nvim && abbr -a vi nvim
 
 # cat -> bat
 abbr -a cat bat
@@ -57,7 +58,7 @@ switch (uname)
 
         if not [ $hostname = toolbx ]
             # Flatpak abbreviations for host
-            command -q nvim or (abbr -a nvim io.neovim.nvim && abbr -a vi io.neovim.nvim)
+            command -q io.neovim.nvim; and abbr -a nvim io.neovim.nvim && abbr -a vi io.neovim.nvim
             abbr -a emacs org.gnu.emacs
             abbr -a zed dev.zed.Zed
         else
