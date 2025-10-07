@@ -10,14 +10,14 @@ switch (uname)
         # Linux Specific
         alias ollama="podman exec -it ollama ollama"
 
-        # Integrate toolbox commands outside of container
+        # Integrate toolbx commands with host
         if not [ $hostname = toolbx ]
-            set toolbx_cmds 7z 7zz go ko gdu npm hugo just opam guile cosign ffmpeg lazygit
+            set toolbx_cmds 7z cosign gdu go guile3.0 hugo just lazygit npm opam
             for cmd in $toolbx_cmds
                 alias "$cmd=toolbox run $cmd"
             end
 
-        # Access host commands within Toolbx Containers
+        # Access host commands from within toolbx containers
         else
             set host_cmds tailscale
             for cmd in $host_cmds
