@@ -1,6 +1,30 @@
 # Abbreviations
 #
 
+# Operating System Specific Routines
+switch (uname)
+    case Darwin
+        # macOS Specific
+        abbr -a portup sudo -- sh -c "'port selfupdate && port upgrade outdated && port uninstall inactive'"
+
+    case Linux
+        # Linux Specific
+        if not [ $hostname = toolbx ]
+            # flatpak abbreviations for host
+            fish_add_path -ag /var/lib/flatpak/exports/bin
+            not command -q nvim; and command -q io.neovim.nvim; and abbr -a nvim io.neovim.nvim; and abbr -a vi io.neovim.nvim
+            command -q org.gnu.emacs; and abbr -a emacs org.gnu.emacs
+            command -q dev.zed.Zed; and abbr -a zed dev.zed.Zed
+        else
+            # Toolbx Container Specific
+        end
+
+        if [ -e /run/ostree-booted ]
+            # OSTree/Immutable System Specific
+        end
+
+end
+
 # mason installed LSPs and Linters
 fish_add_path -ag "$HOME/.local/share/nvim/mason/bin"
 
@@ -21,10 +45,10 @@ abbr -a --set-cursor=! hercules podman run --rm -it \
     ghcr.io/16levels/hercules
 
 # shellcheck container
-command -q shellcheck or abbr -a shellcheck "podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable"
+command -q shellcheck; or abbr -a shellcheck "podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable"
 
 # hadolint container
-command -q hadolint or abbr -a hadolint "podman run --rm -i hadolint/hadolint"
+command -q hadolint; or abbr -a hadolint "podman run --rm -i hadolint/hadolint"
 
 # antora container
 abbr -a antora podman run --rm -i antora/antora
@@ -40,31 +64,7 @@ abbr -a venv uv venv
 abbr -a pip uv pip
 
 # vi -> nvim if in path
-command -q nvim && abbr -a vi nvim
+command -q nvim; and abbr -a vi nvim
 
 # cat -> bat
-command -q bat && abbr -a cat bat
-
-# Operating System Specific Routines
-switch (uname)
-    case Darwin
-        # macOS Specific
-        abbr -a portup sudo -- sh -c "'port selfupdate && port upgrade outdated && port uninstall inactive'"
-
-    case Linux
-        # Linux Specific
-        if not [ $hostname = toolbx ]
-            # flatpak abbreviations for host
-            fish_add_path -ag /var/lib/flatpak/exports/bin
-            command -q io.neovim.nvim; and abbr -a nvim io.neovim.nvim && abbr -a vi io.neovim.nvim
-            command -q org.gnu.emacs; and abbr -a emacs org.gnu.emacs
-            command -q dev.zed.Zed; and abbr -a zed dev.zed.Zed
-        else
-            # Toolbx Container Specific
-        end
-
-        if [ -e /run/ostree-booted ]
-            # OSTree/Immutable System Specific
-        end
-
-end
+command -q bat; and abbr -a cat bat
