@@ -11,25 +11,17 @@ if status is-interactive
             # direnv
             direnv hook fish | source
 
-            # Linux Specific
         case Linux
+            # Linux Specific
+
+            if [ $hostname = toolbx ]
+                # Toolbx Container Specific
+                direnv hook fish | source
+            end
 
             if [ -e /run/ostree-booted ]
                 # OSTree/Immutable System Specific
-
             end
-
-            if not [ $hostname = toolbx ]
-                # Host Specific
-
-            else
-                # Toolbx Container Specific
-
-                # direnv
-                direnv hook fish | source
-
-            end
-
     end
 
     # Path

@@ -13,9 +13,15 @@ switch (uname)
         # Integrate toolbox commands outside of container
         if not [ $hostname = toolbx ]
             set toolbx_cmds 7z 7zz go ko gdu npm hugo just opam guile cosign ffmpeg lazygit
-
             for cmd in $toolbx_cmds
                 alias "$cmd=toolbox run $cmd"
+            end
+
+        # Access host commands within Toolbx Containers
+	else
+            set host_cmds tailscale
+            for cmd in $host_cmds
+                alias "$cmd=host-spawn $cmd"
             end
         end
 
@@ -24,12 +30,4 @@ switch (uname)
 
         end
 
-        # Access host commands within Toolbx Containers
-        if [ $hostname = toolbx ]
-            set host_cmds tailscale
-
-            for cmd in $host_cmds
-                alias "$cmd=host-spawn $cmd"
-            end
-        end
 end

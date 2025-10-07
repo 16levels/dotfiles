@@ -3,8 +3,6 @@
 
 # mason installed LSPs and Linters
 fish_add_path -ag "$HOME/.local/share/nvim/mason/bin"
-# flatpak exports
-fish_add_path -ag /var/lib/flatpak/exports/bin
 
 # asciidoctor container
 for cmd in asciidoctor asciidoctor-epub3 asciidoctor-pdf asciidoctor-revealjs
@@ -21,6 +19,9 @@ abbr -a --set-cursor=! hercules podman run --rm -it \
     -e HERCULES_CNF="hercules.cnf" \
     -e HERCULES_RC="hercules.rc" \
     ghcr.io/16levels/hercules
+
+# shellcheck container
+command -q shellcheck or abbr -a shellcheck "podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable"
 
 # hadolint container
 command -q hadolint or abbr -a hadolint "podman run --rm -i hadolint/hadolint"
@@ -52,23 +53,18 @@ switch (uname)
 
     case Linux
         # Linux Specific
-
-        # shellcheck container
-        command -q shellcheck or abbr -a shellcheck "podman run --rm -v "\$PWD:/mnt:z" koalaman/shellcheck:stable"
-
-        if not [ $hostname = toolbx ]
-            # Flatpak abbreviations for host
+	if not [ $hostname = toolbx ]
+            # flatpak abbreviations for host
+	    fish_add_path -ag /var/lib/flatpak/exports/bin
             command -q io.neovim.nvim; and abbr -a nvim io.neovim.nvim && abbr -a vi io.neovim.nvim
             command -q org.gnu.emacs; and abbr -a emacs org.gnu.emacs
             command -q dev.zed.Zed; and abbr -a zed dev.zed.Zed
-        else
+	else
             # Toolbx Container Specific
-            #
-        end
+	end
 
         if [ -e /run/ostree-booted ]
             # OSTree/Immutable System Specific
-            #
         end
 
 end
