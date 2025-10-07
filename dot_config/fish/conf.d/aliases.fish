@@ -18,7 +18,7 @@ switch (uname)
             end
 
         # Access host commands within Toolbx Containers
-	else
+        else
             set host_cmds tailscale
             for cmd in $host_cmds
                 alias "$cmd=host-spawn $cmd"

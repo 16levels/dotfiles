@@ -53,15 +53,15 @@ switch (uname)
 
     case Linux
         # Linux Specific
-	if not [ $hostname = toolbx ]
+        if not [ $hostname = toolbx ]
             # flatpak abbreviations for host
-	    fish_add_path -ag /var/lib/flatpak/exports/bin
+            fish_add_path -ag /var/lib/flatpak/exports/bin
             command -q io.neovim.nvim; and abbr -a nvim io.neovim.nvim && abbr -a vi io.neovim.nvim
             command -q org.gnu.emacs; and abbr -a emacs org.gnu.emacs
             command -q dev.zed.Zed; and abbr -a zed dev.zed.Zed
-	else
+        else
             # Toolbx Container Specific
-	end
+        end
 
         if [ -e /run/ostree-booted ]
             # OSTree/Immutable System Specific
