@@ -29,7 +29,7 @@ if status is-interactive
     fish_add_path -ag "$HOME/go/bin" # go
 
     # Editor - host or flatpak neovim
-    set -gx EDITOR $(command -s nvim || command -s io.neovim.nvim)
+    set -gx EDITOR $(command -s nvim; or command -s io.neovim.nvim; or command -s vi)
 
     # Use `bat` as manual pager
     set -gx MANPAGER "sh -c 'col -bx | $(command -s bat || command -s batcat) -l man -p'"
