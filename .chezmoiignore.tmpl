@@ -8,7 +8,6 @@ dconf.ini
 .config/containers/**
 .config/distrobox/**
 .config/gtk-3.0/**
-.fonts
 .local/share/**
 .var/app/**
 {{- end }}
@@ -21,6 +20,7 @@ dconf.ini
 {{/* Fedora Specific Files */}}
 {{- if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "fedora") }}
 .local/bin/add_group_entry.sh
+**/fedora-toolbx.container
 **/fedora/**
 {{ end }}
 
