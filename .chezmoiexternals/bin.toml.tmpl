@@ -14,10 +14,46 @@
     refreshPeriod = "168h"
     url = {{ gitHubLatestReleaseAssetURL "sharkdp/fd" (printf "fd-v*-%s-unknown-linux-musl.tar.gz" $unameMachine) | quote }}
 
+[".local/bin/glow"]
+    type = "archive-file"
+    path = "glow"
+    executable = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine) | quote }}
+
+[".config/fish/completions/glow.fish"]
+    type = "archive-file"
+    path = "completions/glow.fish"
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine) | quote }}
+
+[".local/share/man/man1/glow.1.gz"]
+    type = "archive-file"
+    path = "manpages/glow.1.gz"
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine) | quote }}
+
 [".local/bin/rg"]
     type = "archive-file"
     path = "rg"
     executable = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "ripgrep-*-%s-unknown-linux-*.tar.gz" $unameMachine) | quote }}
+
+[".local/share/man/man1/rg.1"]
+    type = "archive-file"
+    path = "doc/rg.1"
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "ripgrep-*-%s-unknown-linux-*.tar.gz" $unameMachine) | quote }}
+
+[".config/fish/completions/rg.fish"]
+    type = "archive-file"
+    path = "complete/rg.fish"
     stripComponents = 1
     refreshPeriod = "168h"
     url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "ripgrep-*-%s-unknown-linux-*.tar.gz" $unameMachine) | quote }}
