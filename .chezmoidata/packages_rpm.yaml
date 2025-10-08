@@ -16,6 +16,7 @@ packages:
       - 'gnome-shell-extension-dash-to-dock'
       - 'gnome-shell-extension-frippery-move-clock'
       - 'htop'
+      - 'podlet'
       - 'podman-compose'
       - 'podman-machine'
       - 'podman-tui'
