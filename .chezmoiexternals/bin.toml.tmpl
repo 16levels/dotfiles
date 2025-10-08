@@ -21,21 +21,6 @@
     refreshPeriod = "168h"
     url = {{ gitHubLatestReleaseAssetURL "sharkdp/fd" (printf "fd-v*-%s-unknown-linux-musl.tar.gz" $unameMachine) | quote }}
 
-[".local/bin/glow"]
-    type = "archive-file"
-    path = "glow"
-    executable = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-    url = {{ or (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine)) (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" .chezmoi.arch )) | quote }}
-
-[".local/share/man/man1/glow.1.gz"]
-    type = "archive-file"
-    path = "manpages/glow.1.gz"
-    stripComponents = 1
-    refreshPeriod = "168h"
-    url = {{ or (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine)) (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" .chezmoi.arch )) | quote }}
-
 [".local/bin/rg"]
     type = "archive-file"
     path = "rg"
@@ -51,12 +36,6 @@
     refreshPeriod = "168h"
     url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "ripgrep-*-%s-unknown-linux-*.tar.gz" $unameMachine) | quote }}
 
-[".local/bin/umoci"]
-    type = "file"
-    executable = true
-    refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "opencontainers/umoci" (printf "umoci.linux.%s" $.chezmoi.arch) | quote }}
-
 [".local/bin/zellij"]
     type = "archive-file"
     path = "zellij"
@@ -66,6 +45,27 @@
 {{ end }}
 
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
+[".local/bin/glow"]
+    type = "archive-file"
+    path = "glow"
+    executable = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ or (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine)) (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" .chezmoi.arch )) | quote }}
+
+[".local/share/man/man1/glow.1.gz"]
+    type = "archive-file"
+    path = "manpages/glow.1.gz"
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ or (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine)) (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" .chezmoi.arch )) | quote }}
+
+[".local/bin/umoci"]
+    type = "file"
+    executable = true
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "opencontainers/umoci" (printf "umoci.linux.%s" $.chezmoi.arch) | quote }}
+
 [".local/bin/starship"]
     type = "archive-file"
     path = "starship"
