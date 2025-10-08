@@ -18,7 +18,7 @@ switch (uname)
             end
         # Integrate toolbx commands outside of container
         else if command -q toolbox
-            set toolbx_cmds 7z 7zz cosign gdu go guile hugo just lazygit npm opam
+            set toolbx_cmds gdu go guile hugo just lazygit npm opam
             for cmd in $toolbx_cmds
                 command -q "$cmd"; or alias "$cmd=toolbox run $cmd"
             end
