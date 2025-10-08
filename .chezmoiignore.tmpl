@@ -21,6 +21,7 @@ dconf.ini
 {{- if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "fedora") }}
 .local/bin/add_group_entry.sh
 **/fedora-toolbx.container
+**/toolbx-aliases.fish
 **/fedora/**
 {{ end }}
 
