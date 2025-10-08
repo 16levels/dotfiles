@@ -67,4 +67,4 @@ abbr -a pip uv pip
 command -q nvim; and abbr -a vi nvim
 
 # cat -> bat
-command -q bat; and abbr -a cat bat
+# command -q bat; and abbr -a cat bat
