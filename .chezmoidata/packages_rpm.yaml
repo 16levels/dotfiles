@@ -5,6 +5,7 @@ packages:
       - 'age'
       - 'atuin'
       - 'bat'
+      - 'bpftrace'
       - 'fastfetch'
       - 'fish'
       - 'flatpak-builder'
