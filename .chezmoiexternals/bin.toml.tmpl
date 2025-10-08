@@ -20,21 +20,21 @@
     executable = true
     stripComponents = 1
     refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine) | quote }}
+    url = {{ or (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine)) (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" .chezmoi.arch )) | quote }}
 
 [".config/fish/completions/glow.fish"]
     type = "archive-file"
     path = "completions/glow.fish"
     stripComponents = 1
     refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine) | quote }}
+    url = {{ or (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine)) (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" .chezmoi.arch )) | quote }}
 
 [".local/share/man/man1/glow.1.gz"]
     type = "archive-file"
     path = "manpages/glow.1.gz"
     stripComponents = 1
     refreshPeriod = "168h"
-    url = {{ gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine) | quote }}
+    url = {{ or (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine)) (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" .chezmoi.arch )) | quote }}
 
 [".local/bin/rg"]
     type = "archive-file"
