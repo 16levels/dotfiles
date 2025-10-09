@@ -4,16 +4,6 @@
     url = "https://gitlab.gnome.org/chergert/ptyxis/-/raw/main/data/icons/ptyxis.svg"
 {{ end }}
 
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian") }}
-{{ $fripperymoveclockVersion := "48.0" }}
-[".local/share/gnome-shell/extensions/Move_Clock@rmy.pobox.com/"] 
-    include = [".local/share/gnome-shell/extensions/Move_Clock@rmy.pobox.com/*"] 
-    type = "archive"
-    url = "https://frippery.org/extensions/gnome-shell-frippery-{{ $fripperymoveclockVersion }}.tgz"
-    exact = true
-    stripComponents =  5
-{{ end -}}
-
 [".local/share/themes/"]
     type = "archive"
     url = {{ gitHubLatestReleaseAssetURL "lassekongo83/adw-gtk3" "adw-gtk3v*.tar.xz" | quote }}

@@ -1,6 +1,6 @@
 # 16levels/dotfiles
 
-While Fedora Silverblue is my daily driver, this repository is also compatible with Fedora Workstation and Debian.
+While Fedora Silverblue is my daily driver, this repository is also compatible with Fedora Workstation.
 
 To install `chezmoi` and apply this repository's dotfiles, use one of the following:
 
