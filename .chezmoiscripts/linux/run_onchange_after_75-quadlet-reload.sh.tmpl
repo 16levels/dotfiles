@@ -1,5 +1,6 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
+# Reload systemd units upon changes to "$HOME/.config/containers/systemd"
 
 # Last Modified: {{ (stat (joinPath .chezmoi.homeDir ".config/containers/systemd")).modTime }}
 

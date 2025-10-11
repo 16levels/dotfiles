@@ -1,5 +1,6 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
+# Ensure that 'flathub' repo is enabled.
 
 # check if remote exists before calling flatpak to avoid sudo prompt:
 if flatpak remotes --columns=name | grep "flathub" >/dev/null 2>&1; then

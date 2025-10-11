@@ -1,4 +1,5 @@
 #!/bin/sh
+# Replace default GNOME Terminal icon with upstream.
 
 TARGET_FILE="$HOME/.local/share/applications/org.gnome.Ptyxis.desktop"
 

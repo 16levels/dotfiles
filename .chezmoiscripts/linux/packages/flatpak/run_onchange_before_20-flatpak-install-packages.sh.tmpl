@@ -1,6 +1,8 @@
 {{ if eq .chezmoi.os "linux" -}}
 {{ $flatpakRemote := "flathub" -}}
 #!/bin/sh
+# Install requested flatpak packages.
+# TODO: Enable multiple remotes.
 
 echo "Installing flatpak packages..."
 flatpak install -y --noninteractive {{ $flatpakRemote | quote }} {{ range .packages.linux.flatpak -}}{{ . | quote }} {{ end -}}

@@ -1,4 +1,5 @@
 #!/bin/sh
+# Generate shell completions for external binaries.
 
 echo "Generating shell completions for external binaries..."
 chezmoi completion fish > ~/.config/fish/completions/chezmoi.fish

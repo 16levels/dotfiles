@@ -1,4 +1,5 @@
 #!/bin/sh
+# Initialize OCaml development environment for 'io.neovim.nvim' flatpak.
 
 flatpak run io.neovim.nvim --headless \
 -c "!opam init --disable-sandboxing --no-setup --root \$XDG_DATA_HOME/ocaml" \

@@ -1,4 +1,5 @@
 #!/bin/sh
+# Enable all available Flatpak SDKs for installed editors.
 
 editors="\
 	com.helix_editor.Helix \

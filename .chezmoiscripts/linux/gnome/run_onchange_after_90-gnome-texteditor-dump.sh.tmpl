@@ -1,5 +1,6 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
+# Load 'org.gnome.TextEditor' flatpak settings from 'dconf.ini'
 
 # dconf.ini hash: {{ include "dconf.ini" | sha256sum }}
 awk '/.org\/gnome\/TextEditor/,/^$/ { print }' \

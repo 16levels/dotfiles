@@ -1,27 +1,27 @@
----  # requested packages
+--- # requested packages (Fedora Workstation & Silverblue)
 packages:
   linux:
     rpm:
-      - 'age'
-      - 'atuin'
-      - 'bat'
-      - 'bpftrace'
-      - 'fastfetch'
-      - 'fish'
-      - 'flatpak-builder'
-      - 'fortune-mod'
-      - 'gh'
-      - 'gnome-shell-extension-blur-my-shell'
-      - 'gnome-shell-extension-caffeine'
-      - 'gnome-shell-extension-dash-to-dock'
-      - 'gnome-shell-extension-frippery-move-clock'
-      - 'htop'
-      - 'podlet'
-      - 'podman-compose'
-      - 'podman-machine'
-      - 'podman-tui'
-      - 'rbw'
-      - 'restic'
-      - 'tailscale'
-      - 'virt-manager'
-      - 'yaru-theme'
+      - "age"
+      - "atuin"
+      - "bat"
+      - "bpftrace"
+      - "fastfetch"
+      - "fish"
+      - "flatpak-builder"
+      - "fortune-mod"
+      - "gh"
+      - "gnome-shell-extension-blur-my-shell"
+      - "gnome-shell-extension-caffeine"
+      - "gnome-shell-extension-dash-to-dock"
+      - "gnome-shell-extension-frippery-move-clock"
+      - "htop"
+      - "podlet"
+      - "podman-compose"
+      - "podman-machine"
+      - "podman-tui"
+      - "rbw"
+      - "restic"
+      - "tailscale"
+      - "virt-manager"
+      - "yaru-theme"
