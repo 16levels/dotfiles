@@ -1,0 +1,5 @@
+[".local/bin/devpod"]
+    type = "file"
+    executable = true
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "loft-sh/devpod" (printf "devpod-%s-%s" $.chezmoi.os $.chezmoi.arch) | quote }}

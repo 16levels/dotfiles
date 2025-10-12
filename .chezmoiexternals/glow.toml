@@ -1,0 +1,17 @@
+{{- $unameMachine := output "uname" "-m" | trim -}}
+{{ if eq .chezmoi.os "linux" -}}
+[".local/bin/glow"]
+    type = "archive-file"
+    path = "glow"
+    executable = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ or (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine)) (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" .chezmoi.arch )) | quote }}
+
+[".local/share/man/man1/glow.1.gz"]
+    type = "archive-file"
+    path = "manpages/glow.1.gz"
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ or (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" $unameMachine)) (gitHubLatestReleaseAssetURL "charmbracelet/glow" (printf "glow_*_Linux_%s.tar.gz" .chezmoi.arch )) | quote }}
+{{- end }}
