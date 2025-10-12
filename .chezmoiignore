@@ -14,6 +14,7 @@ dconf.ini
 
 {{/* Fedora Specific Files */}}
 {{- if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "fedora") }}
+.local/bin/install_factory_flatpaks
 .local/bin/add_group_entry
 **/fedora-toolbx.container
 **/toolbx-aliases.fish
