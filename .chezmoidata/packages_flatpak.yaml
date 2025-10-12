@@ -1,4 +1,4 @@
---- # requested packages (Flatpak/Linux)
+---  # requested packages (Flatpak/Linux)
 packages:
   linux:
     flatpak:
@@ -6,14 +6,12 @@ packages:
       - "app.drey.Warp"
       - "app/me.iepure.devtoolbox"
       - "br.app.pw3270.terminal"
-      # - 'ca.desrt.dconf-editor'
       - "com.bitwarden.desktop"
       - "com.blitterstudio.amiberry"
       - "com.github.flxzt.rnote"
       - "com.github.johnfactotum.Foliate"
       - "com.github.rafostar.Clapper"
-      # - 'com.logseq.Logseq'
-      # - 'dev.qwery.AddWater'
+      - "com.logseq.Logseq"
       - "dev.zed.Zed"
       - "fm.reaper.Reaper"
       - "io.github.cmus.cmus"
@@ -33,5 +31,4 @@ packages:
       - "org.gimp.GIMP"
       - "org.gnome.Podcasts"
       - "org.gnu.emacs"
-      # - 'org.racket_lang.Racket'
       - "org.turbowarp.TurboWarp"

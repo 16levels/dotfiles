@@ -1,4 +1,4 @@
---- # requested packages (Fedora Workstation & Silverblue)
+---  # requested packages (Fedora Workstation & Silverblue)
 packages:
   linux:
     rpm:

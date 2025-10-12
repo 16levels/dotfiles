@@ -1,11 +1,10 @@
---- # requested packages (macOS: MacPorts)
+---  # requested packages (macOS: MacPorts)
 packages:
   darwin:
     macports:
       - "act"
       - "age"
       - "agg"
-      # - 'ansible-lint'
       - "aria2"
       - "asciinema"
       - "atuin"
@@ -30,10 +29,10 @@ packages:
       - "gh"
       - "gnupg2"
       - "go"
-      # - 'gopls'
       - "guile-3.0"
       - "htop"
       - "hugo"
+      - "janet"
       - "just"
       - "ko"
       - "lazygit"
@@ -50,8 +49,7 @@ packages:
       - "p7zip"
       - "podman"
       - "podman-compose"
-      # - 'py-ansible'
-      - "python313"
+      - "python314"
       - "restic"
       - "ripgrep"
       - "rlwrap"
@@ -60,12 +58,10 @@ packages:
       - "shellcheck"
       - "skopeo"
       - "starship"
-      # - 'staticcheck'
       - "syncthing"
       - "tesseract"
       - "unrar"
       - "uv"
-      # - 'vale'
       - "wget"
       - "wol"
       - "zellij"
