@@ -4,6 +4,12 @@ While Fedora Silverblue is my daily driver, this repository is also compatible w
 
 To install `chezmoi` and apply this repository's dotfiles, use one of the following:
 
+.rpm-ostree:
+`rpm-ostree install --apply-live chezmoi && chezmoi init --apply 16levels`
+
+.dnf:
+`dnf -y install chezmoi && chezmoi init --apply 16levels`
+
 .curl:
 `sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply 16levels`
 
@@ -19,10 +25,13 @@ To install `chezmoi` and apply this repository's dotfiles, use one of the follow
 
 - GNU Emacs - https://github.com/jamescherti/minimal-emacs.d[minimal-emacs.d] used as base for configuration.
 - Neovim - https://github.com/nvim-lua/kickstart.nvim[kickstart.nvim] used as base for configuration.
+- Zed
 
 **Fonts:**
 
-- https://typeof.net/Iosevka/[Iosevka] (Term, Aile)
+- https://github.com/googlefonts/noto-emoji[Noto Emoji]
+- https://github.com/ibm/plex[IBM Plex]
+- https://typeof.net/Iosevka[Iosevka] (Term, Aile)
 - https://nerdfonts.com[Nerd Fonts]
 
 ## Fedora Silverblue
@@ -31,7 +40,7 @@ To install `chezmoi` and apply this repository's dotfiles, use one of the follow
 Silverblue uses NSS for groups, so `sudo usermod -aG <group> $user` will not have the intended effect. To add an entry for a group found in `/usr/lib/group` but not `/etc/group`, the following can be used:
 
 ```console
-sudo add_group_entry.sh libvirt
+sudo add_group_entry libvirt
 ```
 
 *https://rpmfusion.org/Configuration[RPM Fusion] should be enabled in order to install https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29[Proprietary NVIDIA Drivers] and hardware decoding support.*
