@@ -9,6 +9,8 @@ switch (uname)
 
     case Linux
         # Linux Specific
+        abbr -a podup 'for i in $(podman images --format "{{.Repository}}:{{.Tag}}" | sed "/<none>/d"); podman pull $i; end;'
+
         if not [ $hostname = toolbx ]
             # flatpak abbreviations for host
             fish_add_path -ag /var/lib/flatpak/exports/bin
