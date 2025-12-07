@@ -1,4 +1,5 @@
 README.adoc
+quadlets/**
 dconf.ini
 
 {{/* Linux Specific Files */}}
