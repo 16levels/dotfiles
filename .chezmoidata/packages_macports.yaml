@@ -57,6 +57,7 @@ packages:
       - "podman-compose"
       - "python314"
       - "racket"
+      - "ramalama"
       - "restic"
       - "ripgrep"
       - "rlwrap"

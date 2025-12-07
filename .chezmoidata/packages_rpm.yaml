@@ -20,6 +20,7 @@ packages:
       - "podman-compose"
       - "podman-machine"
       - "podman-tui"
+      - "ramalama"
       - "rbw"
       - "restic"
       - "tailscale"
