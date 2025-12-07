@@ -9,7 +9,6 @@ switch (uname)
 
     case Linux
         # Linux Specific
-        abbr -a podup 'for i in $(podman images --format "{{.Repository}}:{{.Tag}}" | sed "/<none>/d"); podman pull $i; end;'
 
         if not [ $hostname = toolbx ]
             # flatpak abbreviations for host
@@ -26,6 +25,9 @@ switch (uname)
         end
 
 end
+
+# update OCI images
+abbr -a podup 'for i in $(podman images --format "{{.Repository}}:{{.Tag}}" | sed "/<none>/d"); podman pull $i; end;'
 
 # mason installed LSPs and Linters
 fish_add_path -ag "$HOME/.local/share/nvim/mason/bin"
