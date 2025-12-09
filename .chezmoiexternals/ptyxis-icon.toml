@@ -3,8 +3,3 @@
     type = "file"
     url = "https://gitlab.gnome.org/chergert/ptyxis/-/raw/main/data/icons/ptyxis.svg"
 {{ end }}
-
-[".local/share/themes/"]
-    type = "archive"
-    url = {{ gitHubLatestReleaseAssetURL "lassekongo83/adw-gtk3" "adw-gtk3v*.tar.xz" | quote }}
-    stripComponents = 0
