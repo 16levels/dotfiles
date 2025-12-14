@@ -19,7 +19,6 @@ switch (uname)
             fish_add_path -ag /var/lib/flatpak/exports/bin
             not command -q nvim; and command -q io.neovim.nvim; and abbr -a nvim io.neovim.nvim; and abbr -a vi io.neovim.nvim
             not command -q emacs; and command -q org.gnu.emacs; and abbr -a emacs org.gnu.emacs
-            command -q dev.zed.Zed; and abbr -a zed dev.zed.Zed
         else
             # Toolbx Container Specific
         end
