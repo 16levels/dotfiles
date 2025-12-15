@@ -4,12 +4,11 @@
 # update OCI images
 abbr -a podup 'for i in $(podman images --format "{{.Repository}}:{{.Tag}}" | sed "/<none>/d"); podman pull $i; end;'
 
-
 # Operating System Specific Routines
 switch (uname)
     case Darwin
         # macOS Specific
-        abbr -a portup sudo -- sh -c "'port selfupdate && port upgrade outdated && port uninstall inactive'"
+        abbr -a portup sudo -- sh -c "'port selfupdate && port upgrade outdated'"
 
     case Linux
         # Linux Specific
