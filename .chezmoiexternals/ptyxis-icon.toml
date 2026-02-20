@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.os "linux" -}}
+[".local/share/icons/ptyxis.svg"]
+    type = "file"
+    url = "https://gitlab.gnome.org/api/v4/projects/chergert%2Fptyxis/repository/files/data%2Ficons%2Fptyxis.svg/raw?ref=main"
+{{- end }}

@@ -1,0 +1,22 @@
+{{ if .enable_flatpak_sdks -}}
+#!/bin/sh
+# Enables all available Flatpak SDKs for installed editors.
+
+editors="\
+	com.helix_editor.Helix \
+	com.visualstudio.code \
+	com.vscodium.codium \
+	dev.zed.Zed \
+	io.neovim.nvim \
+	org.gnu.emacs \
+	"
+
+installed_apps=$(flatpak list)
+
+for app in $editors; do
+	if echo "$installed_apps" | grep -q "$app"; then
+		echo "Enabling available SDKs for flatpak '$app'..."
+		flatpak override --user --env="FLATPAK_ENABLE_SDK_EXT=*" "$app"
+	fi
+done
+{{ end -}}

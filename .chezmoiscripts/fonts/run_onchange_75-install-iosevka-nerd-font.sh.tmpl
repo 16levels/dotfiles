@@ -1,0 +1,7 @@
+#!/bin/sh
+# Install NerdFont: IosevkaTerm
+
+{{ template "ensureFontPath.sh.tmpl" . -}}
+
+# IosevkaTerm NerdFont: Regular
+curl -fsSL {{ gitHubLatestReleaseAssetURL "ryanoasis/nerd-fonts" "IosevkaTerm.tar.xz" | quote }} | tar -C "$fontDir" -J -x "IosevkaTermNerdFont-Regular.ttf"

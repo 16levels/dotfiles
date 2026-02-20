@@ -1,0 +1,21 @@
+FROM registry.fedoraproject.org/fedora-minimal:latest
+
+RUN <<EOF
+microdnf install -y curl wget gnupg tar xz shadow-utils procps-ng findutils diffutils
+microdnf clean all
+
+touch /usr/bin/systemctl
+chmod +x /usr/bin/systemctl
+curl -fsSL https://git.savannah.gnu.org/cgit/guix.git/plain/etc/guix-install.sh -o guix-install.sh
+chmod +x guix-install.sh
+yes '' | ./guix-install.sh || true
+rm guix-install.sh /usr/bin/systemctl
+
+mkdir -p /root/.config/guix
+ln -sf /var/guix/profiles/per-user/root/current-guix /root/.config/guix/current
+EOF
+
+ENV PATH="/root/.config/guix/current/bin:/root/.config/guix/current/sbin:$PATH"
+
+# Entrypoint for your Quadlet (Runs the daemon directly)
+ENTRYPOINT ["guix-daemon", "--build-users-group=guixbuild", "--listen=/var/guix/daemon-socket/socket", "--listen=0.0.0.0", "--disable-chroot"]

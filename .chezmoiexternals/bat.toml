@@ -1,0 +1,25 @@
+{{- $unameMachine := output "uname" "-m" | trim -}}
+{{ if eq .chezmoi.os "linux" -}}
+[".local/bin/bat"]
+    type = "archive-file"
+    path = "bat"
+    executable = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "sharkdp/bat" (printf "bat-v*-%s-unknown-linux-gnu.tar.gz" $unameMachine) | quote }}
+
+[".config/fish/completions/bat.fish"]
+    type = "archive-file"
+    path = "autocomplete/bat.fish"
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "sharkdp/bat" (printf "bat-v*-%s-unknown-linux-gnu.tar.gz" $unameMachine) | quote }}
+
+[".local/share/man/man1/bat.1"]
+    type = "archive-file"
+    path = "bat.1"
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "sharkdp/bat" (printf "bat-v*-%s-unknown-linux-gnu.tar.gz" $unameMachine) | quote }}
+
+{{- end }}

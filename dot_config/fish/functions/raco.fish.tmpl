@@ -1,0 +1,6 @@
+{{- if eq .chezmoi.os "linux" }}
+function raco --wraps="flatpak run --command='raco' org.racket_lang.Racket" --description "alias raco flatpak run --command='raco' org.racket_lang.Racket"
+  flatpak run --command='raco' org.racket_lang.Racket $argv
+        
+end
+{{- end }}

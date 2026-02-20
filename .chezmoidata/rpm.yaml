@@ -1,0 +1,7 @@
+---  # requested packages (Fedora Workstation & Silverblue)
+packages:
+  rpm:
+    - "distrobox"
+    - "fish"
+    - "rbw"
+    - "tailscale"

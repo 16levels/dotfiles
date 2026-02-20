@@ -1,0 +1,62 @@
+= Containerized Guix Daemon (Quadlet)
+:description: Configuration for a hardened, rootless guix-daemon via Podman Quadlets.
+
+This directory contains the Infrastructure-as-Code (IaC) definition for running `guix-daemon` on Fedora. By containerizing the daemon, Guix is decoupled from the immutable host, providing a functional GNU functional package management layer without compromising the host's integrity.
+
+== Core Components
+
+The deployment is split into functional units to handle persistence, image building, and security:
+
+[cols="1,2", options="header"]
+|===
+| File | Purpose
+
+| `Containerfile` | Defines the OCI image layers for the Guix environment, including build users and basic Guile requirements.
+| `guix-daemon.build` | A Quadlet `.build` unit that automates the building of the local `Containerfile` using `podman build`.
+| `guix-daemon.container` | The primary service definition. It orchestrates the network, volume mounts, and security opt-ins.
+| `guix-seccomp.json` | A custom security profile required to allow Guix to perform necessary syscalls (like `unshare`) within a rootless namespace.
+| `guix-store.volume` | Persistent Quadlet volume for `/gnu/store`.
+| `guix-var.volume` | Persistent Quadlet volume for `/var/guix`, preserving the state of the Guix database and profiles.
+|===
+
+== Security & Hardening
+
+This setup implements several hardening layers:
+
+* **Seccomp Profiling:** The `guix-seccomp.json` allows specifically audited syscalls required for functional package builds while denying broader access to the host kernel.
+* **Network Segmentation (Optional):** The daemon is placed on a dedicated internal Podman network to isolate build-time network activity from host-side services.
+* **Rootless Operation:** All processes run under the user's namespace to reduce attack surface.
+
+== Environment Integration
+
+To ensure the host system and Distrobox containers can communicate with the daemon, an environment configuration is placed at `~/.config/environment.d/10-guix.conf`. 
+
+This file exports essential variables, such as `GUIX_DAEMON_SOCKET` and `GUIX_PROFILE`.
+
+
+== Usage & Management
+
+These files are managed by chezmoi. To apply changes or rebuild the daemon:
+
+[source,bash]
+----
+# Reload systemd to generate transient units
+systemctl --user daemon-reload
+
+# Rebuild the container image if Containerfile changed
+systemctl --user start guix-daemon-build.service
+
+# Start the daemon
+systemctl --user start guix-daemon.service
+----
+
+== Logs and Troubleshooting
+
+[source,bash]
+----
+# Follow daemon logs
+journalctl --user -u guix-daemon -f
+
+# Inspect volume persistence
+podman volume inspect guix-store
+----

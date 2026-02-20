@@ -1,0 +1,9 @@
+---  # requested extensions (GNOME)
+extensions:
+  gnome:
+  - 'user-theme@gnome-shell-extensions.gcampax.github.com'
+  - 'dash-to-dock@micxgx.gmail.com'
+  - 'Move_Clock@rmy.pobox.com'
+  - 'caffeine@patapon.info'
+  - 'blur-my-shell@aunetx'
+

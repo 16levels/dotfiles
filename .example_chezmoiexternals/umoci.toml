@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "linux" -}}
+[".local/bin/umoci"]
+    type = "file"
+    executable = true
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "opencontainers/umoci" (printf "umoci.linux.%s" $.chezmoi.arch) | quote }}
+{{- end }}

@@ -1,0 +1,16 @@
+[Unit]
+Wants=guix-daemon-build.service
+After=guix-daemon-build.service
+
+[Container]
+Image=localhost/guix-daemon:latest
+ContainerName=guix-daemon
+AddCapability=SYS_ADMIN NET_ADMIN
+SeccompProfile=%h/.config/containers/systemd/guix/guix-seccomp.json
+SecurityLabelDisable=yes
+PublishPort=127.0.0.1:44146:44146
+Volume=guix-store.volume:/gnu:z
+Volume=guix-var.volume:/var/guix:z
+
+[Install]
+WantedBy=default.target

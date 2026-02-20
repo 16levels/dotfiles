@@ -1,0 +1,33 @@
+= Autostart Configuration
+:toc: left
+
+== Overview
+This directory (~/.config/autostart) contains `.desktop` files that the Desktop Environment (DE) executes automatically upon user login. These entries follow the XDG Autostart Specification.
+
+Entries here are useful for:
+* Launching background daemons (e.g., Emacs, Podman services).
+* Mapping network drives or mounting shares.
+* Setting environment variables or running one-off setup scripts.
+
+== SMB Mount Example
+If you need to ensure an SMB share is available immediately upon login, you can create a `.desktop` entry. This is often more reliable than `fstab` for user-specific shares that require network availability post-login.
+
+.~/.config/autostart/example-smb-mount.desktop
+[,ini]
+----
+[Desktop Entry]
+Name=Mount '<server_ip>/<share_name>' SMB Share
+TryExec=gio
+Exec=gio mount smb://<server_ip>/<share_name>
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
+----
+
+> [NOTE]
+> This example uses `gio mount`, which is the standard way to mount shares via GVfs in environments like GNOME or XFCE. It handles credentials via the system keyring.
+
+== Management via Chezmoi
+To ensure these files are managed correctly:
+1. Files should be placed in the `dot_config/autostart/` directory of the chezmoi source.
+2. If a file is temporary or should not be synced, add it to `.chezmoiignore`.

@@ -1,0 +1,6 @@
+{{ if eq .chezmoi.os "linux" -}}
+# Guix user profile
+if [ -f "$GUIX_PROFILE/etc/profile" ]; then
+    . "$GUIX_PROFILE/etc/profile"
+fi
+{{- end }}

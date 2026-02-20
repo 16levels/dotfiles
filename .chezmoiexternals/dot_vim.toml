@@ -1,0 +1,4 @@
+[".vim"]
+    type = "git-repo"
+    url = "https://codeberg.org/16levels/dot_vim"
+    refreshPeriod = "168h"

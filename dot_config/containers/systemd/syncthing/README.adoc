@@ -1,0 +1,35 @@
+= Syncthing Quadlet
+:description: Rootless Syncthing deployment for continuous file synchronization.
+
+This folder contains the Quadlet configuration for Syncthing, providing a decentralized file synchronization service that runs as a rootless user service.
+
+== Components
+
+* `syncthing.container`: The Quadlet specification defining the runtime environment.
+* `~/Sync`: Default persistent directory for synchronized data.
+* `~/.local/state/syncthing`: Persistent storage for Syncthing's internal database and configuration.
+
+== Deployment
+
+[source,bash]
+----
+# Generate the service unit
+systemctl --user daemon-reload
+
+# Enable and start Syncthing
+systemctl --user enable --now syncthing.service
+----
+
+== Initial Setup
+
+Once the container is running, the management interface is accessible via your web browser.
+
+1.  Navigate to link:http://localhost:8384[]
+2.  Set a GUI username and password for security.
+3.  Configure device IDs and folder paths.
+
+== Implementation Notes
+
+* **Privileges:** Uses `UserNS=keep-id` to ensure that files created in the `~/Sync` volume retain the correct UID/GID of your host user, preventing permission issues.
+* **Network:** Uses `network=host` to facilitate local discovery and efficient data transfer.
+* **Healthchecks:** Includes a `HealthCmd` that uses `curl` to monitor the local API status, allowing systemd to restart the container if the service hangs.

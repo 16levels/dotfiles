@@ -1,0 +1,21 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+# Install requested flatpak packages.
+{{ if not .packages.flatpak.apps }}
+
+echo "No Applications requested..."
+{{ else }}
+echo "Installing Flatpak Applications..."
+flatpak install -y --noninteractive flathub {{ range .packages.flatpak.apps -}}{{ . | quote }} {{ end }}
+{{- end -}}
+
+{{ if .enable_flatpak_sdks }}
+{{ if not .packages.flatpak.sdks }}
+echo "No SDK Extensions requested..."
+{{ else }}
+echo "Installing Flatpak SDK Extensions..."
+flatpak install -y --noninteractive flathub {{ range .packages.flatpak.sdks -}}{{ . | quote }} {{ end -}}
+{{- end -}}
+{{- end -}}
+
+{{- end -}}

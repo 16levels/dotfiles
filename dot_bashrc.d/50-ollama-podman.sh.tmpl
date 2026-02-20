@@ -1,0 +1,8 @@
+{{- if eq .chezmoi.os "linux" }}
+# ~/.bashrc.d/80-ollama.sh
+
+# Function to wrap the Ollama container
+ollama() {
+    podman exec -it ollama ollama "$@"
+}
+{{ end }}

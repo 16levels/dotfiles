@@ -1,0 +1,4 @@
+{{- if eq .chezmoi.os "linux" }}
+# Ollama Container
+alias ollama="podman exec -it ollama ollama"
+{{- end }}

@@ -1,0 +1,25 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+# Install factory flatpaks for current Fedora atomic desktop variant.
+
+. /etc/os-release
+
+mapfile -d " " -t factory_flatpaks < <(curl -s "https://pagure.io/pungi-fedora/raw/f$VERSION_ID/f/fedora.conf" | awk -v variant="$VARIANT" -v arch="$(uname -m)" '
+    /ostree_installer/, /]$/ {
+        if ($0 ~ variant) {
+            in_variant = 1
+        }
+        if (in_variant && /flatpak_remote_refs/ && $0 ~ arch) {
+            if (NF > 0) {
+                split($0, parts, /[=",]/)
+                print parts[3]
+            }
+        }
+        if (in_variant && /)/ && $0 !~ variant) {
+            in_variant = 0
+        }
+    }
+')
+
+echo "${factory_flatpaks[@]}" | xargs flatpak -y install
+{{- end }}

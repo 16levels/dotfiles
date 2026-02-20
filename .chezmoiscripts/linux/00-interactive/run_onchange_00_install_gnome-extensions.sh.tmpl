@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Make sure `pip3` is available:
+python -m ensurepip
+
+# Install `gext`:
+pip3 install -U gnome-extensions-cli --user
+
+# Install extensions:
+gext install {{ range .extensions.gnome -}}{{ . | quote }} {{ end -}}
+

@@ -1,0 +1,16 @@
+[Unit]
+Description=Ollama Container
+
+[Container]
+Image=docker.io/ollama/ollama
+AutoUpdate=registry
+ContainerName=ollama
+Volume=%h/.ollama:/root/.ollama:Z
+PublishPort=127.0.0.1:11434:11434
+
+[Service]
+ExecStartPre=/bin/mkdir -p %h/.ollama
+Restart=always
+ 
+[Install]
+WantedBy=default.target

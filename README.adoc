@@ -1,0 +1,189 @@
+= Dotfiles
+Cory Farmer <https://codeberg.org/16levels>
+:toc: left
+:icons: font
+:description: Multi-platform dotfiles managed with chezmoi, targeting Fedora (Silverblue/Server) and macOS.
+
+This repository contains my personal configuration files, managed via link:https://www.chezmoi.io/[chezmoi]. It is designed to maintain a consistent environment across Fedora Silverblue, Fedora Server, and macOS.
+
+'''
+
+== Overview
+
+The configuration is modular, utilizing chezmoi templates to handle architecture and OS differences.
+
+* **Shell:** link:https://fishshell.com/[fish] is the primary interactive shell. A minimal Bash configuration is maintained for the Fedora host system and server logins.
+* **Prompt:** link:https://starship.rs/[Starship] for a consistent cross-shell experience.
+* **Editor:** link:https://neovim.io/[Neovim], link:https://www.gnu.org/software/emacs/[Emacs], and link:https://zed.dev/[Zed].
+* **Terminal:** link:https://ghostty.org/[Ghostty] and link:https://gitlab.gnome.org/chergert/ptyxis/[Ptyxis].
+* **Containers:** Managed via link:https://podman.io/[Podman] and systemd link:https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html[Quadlets] for rootless services.
+
+'''
+
+== Installation
+
+=== Prerequisites (macOS)
+[IMPORTANT]
+On macOS, **link:https://www.macports.org/[MacPorts] must be installed and initialized** before applying these dotfiles. The initialization process relies on the `port` command to install core dependencies and CLI utilities.
+
+[source,bash]
+----
+# 1. Install Xcode Command Line Tools
+xcode-select --install
+
+# 2. Install MacPorts from https://www.macports.org/install.php
+
+# 3. (Optional) Pre-initialize MacPorts
+sudo port selfupdate
+----
+
+=== Applying Dotfiles
+Once prerequisites are met, initialize the environment:
+
+[source,bash]
+----
+# Install chezmoi
+sh -c "$(curl -fsLS get.chezmoi.io/lb)"
+
+# Initialize and apply
+chezmoi init --apply codeberg.org/16levels
+----
+
+'''
+
+== Key Configurations
+
+=== Shell Environment
+- **Fish Shell:** The primary driver for interactive use, featuring custom abbreviations to integrate with containers.
+- **Bash:** Kept lightweight as a fallback and for standard system administration tasks.
+- **Starship:** "The minimal, blazing-fast, and infinitely customizable prompt for any shell!"
+
+'''
+
+=== Infrastructure as Code (IaC)
+==== **Flatpak, RPMs & MacPorts:** 
+
+Managed through declarative YAML lists in `.chezmoidata/`.
+
+'''
+
+==== **GNOME Configuration:** 
+
+Managed via `dconf.ini`. Declare requested GNOME Extensions in `.chezmoidata/gnome_extensions.yaml`.
+
+[IMPORTANT]
+====
+My configuration defaults to the **Dvorak** keyboard layout. If you wish to deploy these dotfiles but prefer the system default (e.g., QWERTY), run the following command within your source directory before applying:
+
+[source,bash]
+----
+sed -Ei '/(|mru-)sources=/d' "$(chezmoi source-path)/dconf.ini"
+----
+====
+
+To manage GNOME settings manually or prepare for configuration changes, use the following `dconf` workflows:
+
+.Reset GNOME to Factory Defaults
+[source,bash]
+----
+# Warning: This recursively resets all user customizations under /org/gnome/
+dconf reset -f /org/gnome/
+----
+
+.Dump Current Settings to a File
+[source,bash]
+----
+# Useful for updating the repo's dconf.ini with local changes
+dconf dump / > dconf.ini
+----
+
+'''
+
+==== **Quadlets:**
+Systemd units in `dot_config/containers/systemd/` handle the lifecycle of containers like the Guix daemon and Syncthing.
+
+===== Deployment
+To enable and start the provided services (e.g., Syncthing, Ollama, Guix):
+
+[source,bash]
+----
+# Reload systemd to generate transient service units
+systemctl --user daemon-reload
+
+# Start and enable the services
+systemctl --user enable --now syncthing.service ollama.service
+----
+
+==== Service Specifics
+
+==== **Syncthing**
+
+The Syncthing container uses `network=host` and maps `~/Sync` and `~/.local/state/syncthing` for persistence.
+**Initial Setup:** After starting the unit, navigate to `http://localhost:8384` in your browser to configure device peering and folder sharing.
+
+==== **Ollama**
+
+Runs the Ollama server as a background service. To interact with the running container, a fish alias is provided in the dotfiles:
+[source,bash]
+----
+alias ollama="podman exec -it ollama ollama"
+----
+This allows you to run commands like `ollama run llama3` directly from your host shell by executing them inside the running Quadlet container.
+
+'''
+
+==== **Distrobox:**
+Used to isolate development environments while keeping the host system immutable.
+
+To integrate with the containerized Guix daemon, the Distrobox manifest is configured to mount the Guix store and profiles:
+** `volume: [ "guix-store:/gnu:z,ro", "guix-var:/var/guix:z" ]` 
+** This allows toolboxes to consume Guix-installed binaries and profiles without running their own daemon.
+
+
+'''
+
+=== Theme and Appearance
+The visual environment is designed for high contrast and consistency across GTK-based systems and terminal emulators:
+
+* **Terminal Emulators & Editors:** Use the **link:https://catppuccin.com/[Catppuccin]** theme (Frappé or Latte) depending on desktop light/dark setting.
+* **Icons:** The **link:https://github.com/ubuntu/yaru/[Yaru]** icon set (from Ubuntu) is utilized for a modern, uniform look across the GNOME desktop.
+* **Typography:** **link:https://typeof.net/Iosevka/[Iosevka]:** is the primary typeface, selected for its narrow width, readability and ligature support.
+
+'''
+
+=== Editors and IDEs
+Optimized for functional programming and systems administration:
+
+* **link:https://neovim.io/[Neovim]:** A custom setup based on link:https://github.com/nvim-lua/kickstart.nvim/[kickstart.nvim].
+* **link:https://www.gnu.org/software/emacs/[Emacs]:** A streamlined environment based on link:https://github.com/jamescherti/minimal-emacs.d[minimal-emacs.d].
+* **link:https://zed.dev/[Zed]:** Cross platform editor offering high-performance graphical rendering, AI integration, devcontainer support and collaboration tools.
+
+'''
+
+== Repository Structure
+
+[cols="1,2", options="header"]
+|===
+| Path | Description
+
+| `.chezmoidata/` | Declarative package lists (Flatpak, RPM, MacPorts) and GNOME extensions.
+| `.chezmoiexternals/` | Manages external binaries, fonts, and themes.
+| `.chezmoiscripts/` | Logic for OS-specific bootstrapping (e.g., `run_onchange_` scripts).
+| `dot_config/` | Configuration files.
+| `dot_local/bin/` | Custom scripts and binaries managed by chezmoi.
+| `dconf.ini` | GNOME settings.
+|===
+
+''' 
+
+== Maintenance
+
+To update the environment and sync changes:
+
+[source,bash]
+----
+chezmoi update
+----
+
+== License
+MIT &copy; Cory Farmer

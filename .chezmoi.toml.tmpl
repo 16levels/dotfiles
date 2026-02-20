@@ -1,0 +1,10 @@
+{{ $email := promptString "E-Mail" -}}
+{{ $atuin_sync_address := promptString "Atuin Sync Address" "https://api.atuin.sh" -}}
+[data]
+email = {{ $email | quote }}
+atuin_sync_address = {{ $atuin_sync_address | quote}}
+
+{{ if eq .chezmoi.os "linux" -}}
+{{ $enable_flatpak_sdks := promptBool "Enable Flatpak SDK Extensions?" false -}}
+enable_flatpak_sdks = {{ $enable_flatpak_sdks }}
+{{- end }}

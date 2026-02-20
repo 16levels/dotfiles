@@ -1,0 +1,11 @@
+#!/bin/sh
+# Rebuild 'bat' cache upon changes to "$HOME/.config/bat/themes"
+
+# Last Modified: {{ (stat (joinPath .chezmoi.homeDir ".config/bat/themes")).modTime }}
+
+echo "Rebuilding 'bat' cache..."
+if command -v bat > /dev/null 2>&1; then
+	bat cache --build
+elif command -v batcat > /dev/null 2>&1; then
+	batcat cache --build
+else echo "'bat' could not be found..."; fi

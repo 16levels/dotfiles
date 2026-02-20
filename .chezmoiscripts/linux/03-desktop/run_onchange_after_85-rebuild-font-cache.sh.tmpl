@@ -1,0 +1,9 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+# Rebuild font cache upon changes to "$HOME/.local/share/fonts"
+
+# Last Modified: {{ (stat (joinPath .chezmoi.homeDir ".local/share/fonts")).modTime }}
+
+echo "Rebuilding font cache..."
+fc-cache -f -v "$HOME/.local/share/fonts"
+{{- end }}

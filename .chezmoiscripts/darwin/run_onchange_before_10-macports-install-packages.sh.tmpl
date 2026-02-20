@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+# Install requested packages under macOS (MacPorts).
+
+echo "Installing requested packages (macports)..."
+sudo port -qu install {{ range .packages.macports -}}{{ . | quote }} {{ end -}}
+
+{{- end }}

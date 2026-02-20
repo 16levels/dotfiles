@@ -1,0 +1,18 @@
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") -}}
+#!/bin/sh
+# Install requested packages under Fedora Workstation or Silverblue.
+
+{{ if eq .chezmoi.osRelease.variant "Workstation Edition" }}
+
+echo "Updating packages (rpm)..."
+sudo dnf -y update
+
+echo "Installing requested packages (rpm)..."
+sudo dnf -y install {{ range .packages.rpm -}}{{ . | quote }} {{ end -}}
+
+{{ else if eq .chezmoi.osRelease.variant "Silverblue" }}
+echo "Installing requested packages (rpm)..."
+rpm-ostree install --idempotent {{ range .packages.rpm -}}{{ . | quote }} {{ end -}}
+{{ end }}
+
+{{- end }}

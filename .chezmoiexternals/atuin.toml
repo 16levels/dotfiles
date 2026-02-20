@@ -1,0 +1,10 @@
+{{- $unameMachine := output "uname" "-m" | trim -}}
+{{ if eq .chezmoi.os "linux" -}}
+[".local/bin/atuin"]
+    type = "archive-file"
+    path = "atuin"
+    executable = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    url = {{ gitHubLatestReleaseAssetURL "atuinsh/atuin" (printf "atuin-%s-unknown-linux-gnu.tar.gz" $unameMachine) | quote }}
+{{- end }}

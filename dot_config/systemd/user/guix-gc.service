@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly Guix Garbage Collection
+After=guix-daemon.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/podman exec -u root guix-daemon guix gc -F 10G
+
+[Install]
+WantedBy=default.target

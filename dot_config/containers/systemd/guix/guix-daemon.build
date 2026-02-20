@@ -1,0 +1,5 @@
+[Build]
+ImageTag=localhost/guix-daemon:latest
+SetWorkingDirectory=%h/.config/containers/systemd/guix
+File=%h/.config/containers/systemd/guix/Containerfile
+Pull=newer

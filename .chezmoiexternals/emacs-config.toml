@@ -1,0 +1,4 @@
+[".emacs.d"]
+    type = "git-repo"
+    url = "https://github.com/16levels/minimal-emacs.d"
+    refreshPeriod = "168h"

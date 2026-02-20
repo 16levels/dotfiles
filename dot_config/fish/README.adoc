@@ -1,0 +1,24 @@
+= Fish Configuration
+:description: Primary interactive shell configuration.
+
+This directory houses the configuration for the **fish** shell. The setup focuses on productivity through abbreviations and container-aware aliases.
+
+== Key Features
+
+* **Starship:** High-performance prompt integrated via `config.fish`.
+* **Abbreviations:** Extensive use of `abbr` for git, systems administration, and navigation.
+* **Container Wrappers:** Specialized aliases that wrap `podman exec` or `distrobox enter` to provide a native feel for containerized tools (e.g., `ollama`, `antora`, `hadolint`).
+
+== Organization
+
+* `config.fish`: The entry point for the shell.
+* `conf.d/`: Modular snippets for tool initialization (atuin, direnv).
+* `completions/`: Custom tab-completion logic for project-specific scripts.
+
+== Usage
+
+To update shell completions after adding a new tool:
+[source,bash]
+----
+fish_update_completions
+----

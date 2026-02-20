@@ -1,0 +1,39 @@
+= Ollama Quadlet
+:description: Configuration for running Ollama LLM server as a rootless container.
+
+This directory manages the Ollama server deployment using systemd Quadlets. It is configured to run in the background, providing an API for local large language model inference.
+
+== Components
+
+* `ollama.container`: The Quadlet specification.
+* `~/.ollama`: Persistent volume mapped to the container to store downloaded models and configuration.
+
+== Deployment
+
+[source,bash]
+----
+# Reload systemd to detect the Quadlet
+systemctl --user daemon-reload
+
+# Start the service
+systemctl --user enable --now ollama.service
+----
+
+== Usage
+
+While the server runs as a systemd service, you can interact with it using the `ollama` CLI. A Fish alias is provided in these dotfiles to bridge the host shell and the container:
+
+[source,bash]
+----
+# Alias definition in dotfiles
+alias ollama="podman exec -it ollama ollama"
+
+# Example: Run a model
+ollama run llama3
+----
+
+== Configuration Details
+
+* **Network:** Uses bridged mode, publishing localhost API access (port 11434).
+* **Persistence:** Uses a bind mount to `%h/.ollama` with the `:Z` flag to ensure correct SELinux labeling on Fedora.
+* **Auto-Update:** Configured to pull the latest image automatically via `AutoUpdate=registry`.
